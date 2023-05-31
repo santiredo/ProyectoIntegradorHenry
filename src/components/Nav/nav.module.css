@@ -1,0 +1,21 @@
+.divNav{
+    display: flex;
+    justify-content: center;
+}
+
+.navBar {
+    margin: 5px;
+    display: grid;
+    width: 99%;
+    position: fixed;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+    background-color: rgb(91, 212, 91);
+    border-radius: 5px ;
+}
+
+.title {
+    margin: 10px;
+    font-size: 35px;
+}
