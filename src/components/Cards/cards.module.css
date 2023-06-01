@@ -1,6 +1,5 @@
-.cardsSection{
-    margin-top: 90px;
+.cardsDiv{
+    margin-top: 150px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    column-gap: 10px;
- }
+}

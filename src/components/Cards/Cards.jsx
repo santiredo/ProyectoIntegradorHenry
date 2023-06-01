@@ -4,7 +4,7 @@ import styles from './cards.module.css'
 export default function Cards({ characters, onClose }) {
 
    return (
-      <section className={styles.cardsSection}>
+      <section className={styles.cardsDiv}>
          {   
             characters.map(char => {
                return (

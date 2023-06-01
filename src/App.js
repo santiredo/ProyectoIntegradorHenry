@@ -1,7 +1,11 @@
 import Cards from './components/Cards/Cards.jsx';
 import Nav from './components/Nav/Nav.jsx';
+import About from './views/About/About.jsx';
+import Detail from './components/Detail/Detail.jsx';
 import { useState } from 'react';
 import axios from 'axios';
+import { Route, Routes } from 'react-router-dom';
+
 
 export default function App() {
 
@@ -38,7 +42,6 @@ export default function App() {
                         break;
                      }
                   }
-                  
                }
             }
          }
@@ -47,12 +50,6 @@ export default function App() {
          } else {
             setCharacters((oldChars) => [...oldChars, ...filteredCharacters]);
          }
-
-/*          if (data.name) {
-            setCharacters((oldChars) => [...oldChars, data]);
-         } else {
-            window.alert('¡No hay personajes con este ID!');
-         } */
       });
    }
 
@@ -60,10 +57,38 @@ export default function App() {
       setCharacters((oldChars) => oldChars.filter((char) => char.id !== id));
    }
 
+   function randomHandler() {
+
+      let random = Math.floor(Math.random() * 826 + 1);
+
+      const isAlreadyAdded = characters.some((char) => char.id === random);
+
+      if (isAlreadyAdded) {
+         window.alert('Ya has agregado ese personaje');
+         return;
+      }
+
+      fetch(`https://rickandmortyapi.com/api/character/${random}`)
+      .then(res => res.json())
+      .then((data) => {
+         setCharacters((oldChars) => [...oldChars, data]);
+      })
+      .catch((error) => {
+         window.alert('Error al obtener el personaje');
+         console.error(error);
+      });
+   }
+
    return (
       <>
-         <Nav onSearch={onSearch}/>
-         <Cards characters={characters} onClose={onClose}/>
+         <Nav onSearch={onSearch} addRandom={randomHandler}/>
+         <Routes>
+            <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
+            <Route path='/' element={<Cards characters={characters} onClose={onClose}/>}/>
+            <Route path='/about' element={<About/>}/>
+            <Route path='/detail/:id' element={<Detail/>}/>
+         </Routes>
+         
       </>
    );
 }

@@ -6,14 +6,40 @@
 .navBar {
     margin: 5px;
     display: grid;
-    width: 99%;
+    width: 98%;
     position: fixed;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
     justify-items: center;
     background-color: rgb(91, 212, 91);
     border-radius: 5px ;
 }
+
+.navDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.navLink {
+    padding: 0 8px;
+    font-weight: 700;
+    color: black;
+    font-family: 'Kanit', sans-serif;
+    background: linear-gradient(rgb(169, 255, 174), rgba(145, 240, 150, 0.61));
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+ .navLink:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 500ms;
+ }
 
 .title {
     margin: 10px;
