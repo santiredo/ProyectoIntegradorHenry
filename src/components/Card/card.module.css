@@ -1,16 +1,15 @@
 .characters {
     display: grid;
-    grid-template-rows: 4fr 1fr;
+    grid-template-rows: 3fr 1fr;
+    gap: 5px;
 }
 
 .card {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
     perspective: 1000px;
     position: relative;
-    box-sizing: border-box;
 }
 
 .cardFront{
@@ -18,6 +17,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 185px;
+    height: 185px;
     transform: rotateY(0deg);
     position: absolute;
     backface-visibility: hidden;
@@ -25,9 +26,11 @@
 }
 
 .cardBack {
+    background-color:#5bd45b;
+    border: solid rgb(0, 255, 34);    border-radius: 50%;
     transform: rotateY(180deg);
-    width: 100%;
-    height: 100%;
+    width: 185px;
+    height: 185px;
     position: absolute;
     backface-visibility: hidden;
     transition: transform 0.6s ease;
@@ -36,7 +39,16 @@
     justify-content: center;
 }
 
-
+.cardBack ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: 1px;
+}
 
 .card:hover .cardFront {
     cursor: pointer;
@@ -44,21 +56,25 @@
 }
 
 .card:hover .cardBack {
-    background-color:#5bd45b;
-    border-radius: 40px;
     cursor: pointer;
     transform: rotateY(0deg);
 }
 
-.bin {
-    height: 16px;
-    width: 16px;
-}
-
 .cardImg {
-    width: 85%;
+    width: 100%;
     border-radius: 50%;
     border: solid rgb(0, 255, 34);
+}
+
+.nameAndBin {
+    display: flex;
+    position: relative;
+    margin-top: 5px;
+    justify-content: center;
+}
+
+.nameAndBin img{
+    margin-right: 10px;
 }
 
 .linkName{
@@ -67,6 +83,10 @@
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 .linkName:hover {
@@ -74,13 +94,16 @@
     transform: scale(1.2);
     background:linear-gradient(rgb(128, 0, 128),rgb(71, 6, 71));
     transition: 750ms;
+    color: white;
 }
 
-.nameAndBin {
-    display: flex;
-    position: relative;
-    margin-top: 5px;
-    justify-content: center;
+.linkName p {
+    margin: 0;
+    visibility: hidden;
+}
+
+.linkName:hover p{
+    visibility: inherit;
 }
 
 .nameAndBin img {

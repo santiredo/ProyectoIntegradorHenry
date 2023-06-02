@@ -12,15 +12,17 @@ export default function Card({id, name, status, species, gender, origin, image, 
 
             <div className={styles.cardBack}>
                   <ul>
-                     <li>Status: {status}</li>
-                     <li>Specie: {species}</li>
-                     <li>Gender: {gender}</li>
-                     <li>{origin}</li>
+                     <li>{status}</li>
+                     <li>{species}</li>
+                     <li>{gender}</li>
                   </ul>
             </div>
          </div>
          <div className={styles.nameAndBin}>
-         <NavLink className={styles.linkName} to={`/detail/${id}`}>{name}</NavLink>
+         <NavLink className={styles.linkName} to={`/detail/${id}`}>
+            {name}
+            <p className={styles.plusInfo}>+ info</p>
+         </NavLink>
          <img src={bin} alt={name} onClick={() => onClose(id)}/>
          </div>
          
