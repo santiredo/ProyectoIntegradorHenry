@@ -11,8 +11,9 @@
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     justify-items: center;
-    background-color: rgb(91, 212, 91);
+    background: linear-gradient(rgb(169, 255, 174), rgba(145, 240, 150, 0.61));
     border-radius: 5px ;
+    z-index: 1000;
 }
 
 .navDiv {
@@ -30,7 +31,7 @@
     font-weight: 700;
     color: black;
     font-family: 'Kanit', sans-serif;
-    background: linear-gradient(rgb(169, 255, 174), rgba(145, 240, 150, 0.61));
+    background: linear-gradient(rgb(145, 240, 150),rgb(169, 255, 174));
     border: none;
     border-radius: 5px;
     text-decoration: none;

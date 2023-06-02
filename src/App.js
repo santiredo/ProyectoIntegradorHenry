@@ -1,7 +1,7 @@
 import Cards from './components/Cards/Cards.jsx';
 import Nav from './components/Nav/Nav.jsx';
 import About from './views/About/About.jsx';
-import Detail from './components/Detail/Detail.jsx';
+import Detail from './views/Detail/Detail.jsx';
 import { useState } from 'react';
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';

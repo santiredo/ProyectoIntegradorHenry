@@ -1,44 +1,94 @@
 .pageDiv {
     display: flex;
     flex-direction: column;
-    margin-top: 120px;
+    margin: 80px 50px;
     align-items: center;
 }
 
 .pageDiv h1 {
     margin: 0;
     color: rgb(91, 212, 91);
-    font-size: 70px;
+    font-size: 80px;
 }
 
 .aboutMeDiv {
     display: grid;
     grid-template-columns: 1.2fr 2fr;
     margin: 20px;
-    gap: 40px;
+    gap: 120px;
+    height: 450px;
+    align-items: center;
+    justify-items: center;
 }
 
-.myPhoto {
+.perfil{
+    display: flex;
+    height: 100%;
     width: 100%;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    position: relative;
+}
+
+.perfilBack{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(180deg);
+    position: absolute;
+    backface-visibility: hidden;
+    transition: transform 0.6s ease;
+    background:linear-gradient(rgb(117, 0, 117),rgb(71, 6, 71));
+    width: 404px;
+    height: 404px;
     border-radius: 50%;
     border: solid rgb(192, 0, 150);
 }
 
+.perfilBack p{
+    line-height: 50%;
+    font-size: xx-large;
+    letter-spacing: 5px;
+    color: rgb(241, 220, 196);
+}
+
+.myPhoto {
+    transform: rotateY(0deg);
+    position: absolute;
+    backface-visibility: hidden;
+    transition: transform 0.6s ease;
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: solid rgb(192, 0, 150);
+}
+
+.perfil:hover .myPhoto {
+    cursor: pointer;
+    transform: rotateY(-180deg);
+}
+
+.perfil:hover .perfilBack {
+    cursor: pointer;
+    transform: rotateY(0deg);
+}
+
 .initialText {
     display: flex;
+    height: 75%;
     align-items: center;
     line-height: 170%;
-    margin: 10px 0;
     border: 5px solid rgb(192, 0, 150);
     border-radius: 40px;
     background:linear-gradient(rgb(117, 0, 117),rgb(71, 6, 71));
 }
 
 .initialText p {
-    margin: 0;
-    padding: 0 35px;
-    color: rgb(241, 220, 196);
-    font-size: large;
+    margin: 0 45px;
+    color:rgb(241, 207, 167);
+    font-size: 19px;
     letter-spacing: 1.5px;
     text-align: center;
 }
@@ -55,7 +105,10 @@
 }
 
 .infoCards {
-    width: 300px;
-    height: 30px;
-    background-color:  rgb(91, 212, 91);;
+    display: flex;
+    border: solid rgb(91, 212, 91);
+    border-radius: 30px ;
+    width: 90%;
+    height: 150px;
+    background:linear-gradient( rgb(85, 165, 85),rgb(31, 202, 31)) ;
 }

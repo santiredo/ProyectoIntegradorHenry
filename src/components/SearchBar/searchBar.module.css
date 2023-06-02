@@ -10,7 +10,7 @@
     letter-spacing: 1.5px;
     font-family: 'Kanit', sans-serif;
     font-weight: 700;
-    background: linear-gradient(rgb(169, 255, 174), rgba(145, 240, 150, 0.61));
+    background: linear-gradient(rgb(145, 240, 150),rgb(169, 255, 174));
     border: none;
     padding-left: 15px;
     height: 40%;
@@ -32,7 +32,7 @@
     font-weight:700;
     font-size: 15px ;
     letter-spacing: 1px;
-    background:linear-gradient(rgba(145, 240, 150, 0.61), rgb(169, 255, 174));
+    background: linear-gradient(rgb(145, 240, 150),rgb(169, 255, 174));
     border: none;
     border-radius: 5px;
     padding: 0 10px;

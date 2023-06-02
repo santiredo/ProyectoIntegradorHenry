@@ -1,33 +1,48 @@
 .characters {
     display: grid;
-    grid-template-rows: 3fr 1fr;
+    grid-template-rows: 1fr 185px 2fr;
+    width: 25%;
+    justify-items: center;
+    align-items: center;
     gap: 5px;
 }
 
+.bin{
+    display: grid;
+    justify-self: right;
+    margin-right: 80px;
+}
+
+.bin:hover {
+    cursor: pointer;
+    transform: scale(1.5);
+    transition: 500ms;
+}
+
 .card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 185px;
+    height: 185px;
+    border-radius: 50%;
     perspective: 1000px;
     position: relative;
 }
 
 .cardFront{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    border-radius: 50%;
+    transform: rotateY(0deg);
     width: 185px;
     height: 185px;
-    transform: rotateY(0deg);
     position: absolute;
     backface-visibility: hidden;
     transition: transform 0.6s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cardBack {
     background-color:#5bd45b;
-    border: solid rgb(0, 255, 34);    border-radius: 50%;
+    border-radius: 50%;
     transform: rotateY(180deg);
     width: 185px;
     height: 185px;
@@ -47,7 +62,10 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    font-size: 20px;
+    line-height: 35px;
+    text-align: center;
 }
 
 .card:hover .cardFront {
@@ -62,58 +80,63 @@
 
 .cardImg {
     width: 100%;
+    margin: 0;
     border-radius: 50%;
-    border: solid rgb(0, 255, 34);
 }
 
-.nameAndBin {
-    display: flex;
-    position: relative;
-    margin-top: 5px;
-    justify-content: center;
-}
-
-.nameAndBin img{
-    margin-right: 10px;
-}
-
-.linkName{
+.name{
     color: black;
+    font-size: x-large;
     background-color: rgb(91, 212, 91);
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 50%;
-    display: flex;
+    border-radius: 30px;
+    display: grid;
+    position: relative;
     flex-direction: column;
     align-items: center;
-
+    min-width: 100px;
+    padding: 10px 20px;
+    text-align: center;
+    line-height: 20px;
+    text-decoration: none;
 }
 
-.linkName:hover {
-    cursor: pointer;
-    transform: scale(1.2);
-    background:linear-gradient(rgb(128, 0, 128),rgb(71, 6, 71));
-    transition: 750ms;
-    color: white;
-}
-
-.linkName p {
+.name p {
     margin: 0;
+}
+
+.name:hover {
+    cursor:pointer;
+    animation: changeBackground 1.5s forwards;
+    color:rgb(241, 207, 167);
+    transition: 1s;
+}
+  
+@keyframes changeBackground {
+from {
+    background-color: rgb(91, 212, 91);
+}
+to {
+    background: linear-gradient(rgb(128, 0, 128), rgb(71, 6, 71));
+}
+}
+
+.name:hover p{
     visibility: hidden;
+    opacity: 0;
+    transition: 1s;
 }
 
-.linkName:hover p{
-    visibility: inherit;
-}
-
-.nameAndBin img {
+.plusInfo {
+    display: grid;
+    justify-self: center;
     position: absolute;
-    margin-top:-10px;
-    right: 0;
+    font-size: 20px;
+    opacity: 0;
+    color:rgb(241, 207, 167);
 }
 
-.nameAndBin img:hover{
-    cursor: pointer;
-    transform: scale(1.5);
-    transition: 500ms;
+.name:hover .plusInfo{
+    visibility: inherit;
+    opacity: 1;
+    transition: 1s;
 }
