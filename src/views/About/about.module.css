@@ -1,0 +1,61 @@
+.pageDiv {
+    display: flex;
+    flex-direction: column;
+    margin-top: 120px;
+    align-items: center;
+}
+
+.pageDiv h1 {
+    margin: 0;
+    color: rgb(91, 212, 91);
+    font-size: 70px;
+}
+
+.aboutMeDiv {
+    display: grid;
+    grid-template-columns: 1.2fr 2fr;
+    margin: 20px;
+    gap: 40px;
+}
+
+.myPhoto {
+    width: 100%;
+    border-radius: 50%;
+    border: solid rgb(192, 0, 150);
+}
+
+.initialText {
+    display: flex;
+    align-items: center;
+    line-height: 170%;
+    margin: 10px 0;
+    border: 5px solid rgb(192, 0, 150);
+    border-radius: 40px;
+    background:linear-gradient(rgb(117, 0, 117),rgb(71, 6, 71));
+}
+
+.initialText p {
+    margin: 0;
+    padding: 0 35px;
+    color: rgb(241, 220, 196);
+    font-size: large;
+    letter-spacing: 1.5px;
+    text-align: center;
+}
+
+.cardsDiv {
+    width: 100%;
+    gap: 50px;
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+}
+
+.infoCards {
+    width: 300px;
+    height: 30px;
+    background-color:  rgb(91, 212, 91);;
+}
