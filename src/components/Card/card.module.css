@@ -89,46 +89,43 @@
     font-size: x-large;
     background-color: rgb(91, 212, 91);
     border-radius: 30px;
-    display: grid;
+    display: flex;
     position: relative;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     min-width: 100px;
-    padding: 10px 20px;
     text-align: center;
     line-height: 20px;
     text-decoration: none;
 }
 
 .name p {
-    margin: 0;
+    margin: 10px 20px;
 }
 
 .name:hover {
     cursor:pointer;
-    animation: changeBackground 1.5s forwards;
-    color:rgb(241, 207, 167);
-    transition: 1s;
+    animation: newBackground 1s forwards;
 }
   
-@keyframes changeBackground {
-from {
-    background-color: rgb(91, 212, 91);
+@keyframes newBackground {
+0% {
+    opacity: 0;
+    background: linear-gradient(rgb(128, 0, 128), rgb(71, 6, 71));
 }
-to {
+100% {
+    opacity: 1;
     background: linear-gradient(rgb(128, 0, 128), rgb(71, 6, 71));
 }
 }
 
 .name:hover p{
-    visibility: hidden;
     opacity: 0;
     transition: 1s;
 }
 
 .plusInfo {
-    display: grid;
-    justify-self: center;
     position: absolute;
     font-size: 20px;
     opacity: 0;
@@ -136,7 +133,6 @@ to {
 }
 
 .name:hover .plusInfo{
-    visibility: inherit;
     opacity: 1;
     transition: 1s;
 }

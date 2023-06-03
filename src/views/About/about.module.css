@@ -1,20 +1,25 @@
 .pageDiv {
     display: flex;
     flex-direction: column;
-    margin: 80px 50px;
+    margin: 0 80px;
+    margin-bottom: 50px;
     align-items: center;
+    gap: 100px;
 }
 
-.pageDiv h1 {
-    margin: 0;
-    color: rgb(91, 212, 91);
+.title {
+    margin: 100px 450px 100px 450px;
+    text-align: center;
+    border-radius: 10px;
+    color: rgb(206, 194, 157);
     font-size: 80px;
+    font-weight:lighter;
+    background-color: rgba(71, 6, 71, 0.445);
 }
 
 .aboutMeDiv {
     display: grid;
     grid-template-columns: 1.2fr 2fr;
-    margin: 20px;
     gap: 120px;
     height: 450px;
     align-items: center;
@@ -29,6 +34,7 @@
     align-items: center;
     perspective: 1000px;
     position: relative;
+    border-radius: 50%;
 }
 
 .perfilBack{
@@ -51,7 +57,7 @@
     line-height: 50%;
     font-size: xx-large;
     letter-spacing: 5px;
-    color: rgb(241, 220, 196);
+    color: rgb(206, 194, 157);
 }
 
 .myPhoto {
@@ -66,12 +72,10 @@
 }
 
 .perfil:hover .myPhoto {
-    cursor: pointer;
     transform: rotateY(-180deg);
 }
 
 .perfil:hover .perfilBack {
-    cursor: pointer;
     transform: rotateY(0deg);
 }
 
@@ -81,34 +85,159 @@
     align-items: center;
     line-height: 170%;
     border: 5px solid rgb(192, 0, 150);
-    border-radius: 40px;
+    border-radius: 15px;
     background:linear-gradient(rgb(117, 0, 117),rgb(71, 6, 71));
 }
 
 .initialText p {
     margin: 0 45px;
     color:rgb(241, 207, 167);
-    font-size: 19px;
-    letter-spacing: 1.5px;
+    font-size: 21px;
+    letter-spacing: 1.4px;
     text-align: center;
 }
 
 .cardsDiv {
     width: 100%;
-    gap: 50px;
-    margin-top: 100px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 40px;
     align-items: center;
-    justify-items: center;
+    justify-content: space-evenly;
 }
 
 .infoCards {
     display: flex;
-    border: solid rgb(91, 212, 91);
-    border-radius: 30px ;
-    width: 90%;
-    height: 150px;
-    background:linear-gradient( rgb(85, 165, 85),rgb(31, 202, 31)) ;
+    position: relative;
+    border-radius: 15px;
+    width: 45%;
+    height: 200px;
+    background:linear-gradient(rgb(71, 6, 71),rgb(138, 6, 138));
+}
+
+.infoCards:hover .frontCards{
+    cursor: context-menu;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.frontCards{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: rgb(206, 194, 157);
+    font-size: 30px;
+    letter-spacing: 2px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: 2s;
+}
+
+.infoCards:hover .backCards{
+    cursor: context-menu;
+    opacity: 1;
+    transition: 2s;
+}
+
+.backCards{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    gap: 100px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: 1.5s;
+}
+
+.backCards p{
+    margin: 0;
+    padding: 40px;
+    color: rgb(206, 194, 157);
+    font-size: 17px;
+    line-height: 125%;
+}
+
+.backCards img{
+    cursor: pointer;
+    width: 70px;
+    height: 70px;
+}
+
+.backCards img:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+}
+
+.infoCardsPlus {
+    z-index: 900;
+    display: flex;
+    position: relative;
+    border-radius: 15px;
+    width: 45%;
+    height: 200px;
+    transition: 1s;
+    background: linear-gradient(rgb(26, 85, 28),rgb(0, 0, 0));
+}
+
+.frontCardsPlus {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: rgb(206, 194, 157);
+    font-size: 30px;
+    letter-spacing: 2px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: 3s;
+    opacity: 1s;
+}
+
+.infoCardsPlus:hover {
+    transform-origin: bottom left;
+    transform: scaleX(2.07) scaleY(2.2);
+    transition: 2s;
+    border-radius: 6px;
+}
+
+.infoCardsPlus:hover .frontCardsPlus{
+    opacity: 0;
+    transition: 1s;
+    cursor: pointer;
+}
+
+.infoCardsPlus:hover .backCardsPlus{
+    cursor: context-menu;
+    opacity: 1;
+    transition: 2s;
+}
+
+.backCardsPlus{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: 1.5s;
+}
+
+.backCardsPlus p{
+    margin: 0;
+    padding: 4.5px 20px;
+    color: rgb(206, 194, 157);
+    font-size: 8px;
+    letter-spacing: 0.5px;
+    line-height: 120%;
 }

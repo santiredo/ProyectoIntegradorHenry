@@ -10,7 +10,7 @@ export default function Nav({onSearch, addRandom}){
                 <h1 className={styles.title}>Rick & Morty Project</h1>
                 <div className={styles.navDiv}>
                     <NavLink to='/about' className={styles.navLink}>
-                        About
+                        About me
                     </NavLink>
                     <NavLink to='/home' className={styles.navLink}>
                         Home
