@@ -28,6 +28,7 @@
 }
 
 .cardFront{
+    border: 1px solid #5bd45b;
     border-radius: 50%;
     transform: rotateY(0deg);
     width: 185px;
@@ -64,17 +65,32 @@
     gap: 10px;
     letter-spacing: 2px;
     font-size: 20px;
-    line-height: 35px;
+    font-weight: bolder;
+    line-height: 25px;
     text-align: center;
 }
 
+.cardBack a{
+    font-size: 12px;
+    font-weight: lighter;
+    border-radius: 15px;
+    color:rgb(241, 207, 167);
+    padding: 0 5px;
+    text-decoration: none;
+    background: linear-gradient(rgb(128, 0, 128), rgb(71, 6, 71));
+}
+
+.cardBack a:hover{
+    transform: scale(1.5);
+    transition: 0.5s;
+}
+
 .card:hover .cardFront {
-    cursor: pointer;
     transform: rotateY(-180deg);
 }
 
 .card:hover .cardBack {
-    cursor: pointer;
+    cursor: context-menu;
     transform: rotateY(0deg);
 }
 
@@ -106,7 +122,7 @@
 
 .name:hover {
     cursor:pointer;
-    animation: newBackground 1s forwards;
+    animation: newBackground 0.5s forwards;
 }
   
 @keyframes newBackground {

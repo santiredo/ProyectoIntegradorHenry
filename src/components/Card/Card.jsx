@@ -17,9 +17,10 @@ export default function Card({id, name, status, species, gender, origin, image, 
                         <li>{status}</li>
                         <li>{species}</li>
                         <li>{gender}</li>
+                        <NavLink to={`/detail/${id}`}>+ Info</NavLink>
                      </ul>
                </div>
-               
+
          </div>
          <NavLink to={`/detail/${id}`} className={styles.name} >
             <p>{name}</p>
