@@ -122,12 +122,28 @@
 
 .name:hover {
     cursor:pointer;
-    animation: newBackground 0.5s forwards;
+    animation: newBackground 0.3s forwards;
 }
-  
+
 @keyframes newBackground {
 0% {
-    opacity: 0;
+    opacity: 1;
+    background: rgb(91, 212, 91);
+}
+20%{
+    opacity: 0.8;
+    background: rgb(91, 212, 91);
+}
+40%{
+    opacity: 0.5;
+    background: rgb(91, 212, 91);
+}
+60%{
+    opacity: 0.3;
+    background: linear-gradient(rgb(128, 0, 128), rgb(71, 6, 71));
+}
+80%{
+    opacity: 0.5;
     background: linear-gradient(rgb(128, 0, 128), rgb(71, 6, 71));
 }
 100% {

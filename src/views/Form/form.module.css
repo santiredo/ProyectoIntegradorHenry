@@ -1,0 +1,103 @@
+.loginContainer {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loginPage{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 50px 50px;
+    grid-template-columns: repeat(2, 1fr);
+    overflow: hidden;
+    gap: 50px;
+}
+
+.background{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.loginForm{
+    display: grid;
+    align-self: center;
+    justify-self: center;
+    padding: 30px 20px;
+    color: rgb(206, 194, 157);
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    border-radius: 10px;
+    z-index: 1000;
+    background-image: url(/src/img/background.jpg);
+}
+
+.registerForm{
+    display: grid;
+    align-self: center;
+    justify-self: center;
+    padding: 30px 20px;
+    color: rgb(206, 194, 157);
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    border-radius: 10px;
+    z-index: 1000;
+    background-image: url(/src/img/background.jpg);
+}
+
+h1 {
+    margin: 0;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 20px;
+}
+
+.input input{
+    background-color: rgb(206, 194, 157);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    width: 200px;
+    font-family: 'Kanit', sans-serif;
+    font-size: medium;
+}
+
+.input input::placeholder{
+    display: grid;
+    justify-self: center ;
+}
+
+button{
+    border: none;
+    border-radius: 5px;
+    padding: 5px 30px;
+    color: rgb(206, 194, 157);
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: large;
+    background-color: rgb(102, 23, 102);
+}
+
+button:hover{
+    cursor: pointer;
+    color: black;
+    background-color: rgb(91, 212, 91);
+}

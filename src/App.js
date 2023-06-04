@@ -2,12 +2,29 @@ import Cards from './components/Cards/Cards.jsx';
 import Nav from './components/Nav/Nav.jsx';
 import About from './views/About/About.jsx';
 import Detail from './views/Detail/Detail.jsx';
-import { useState } from 'react';
+import Form from './views/Form/Form.jsx';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
 
 export default function App() {
+
+   const navigate = useNavigate();
+   const [access, setAccess] = useState(false);
+   const EMAIL = 'santi16redo@gmail.com';
+   const PASSWORD = 'proyectorickymorty1';
+
+   function login(userData) {
+      if (userData.password === PASSWORD && userData.email === EMAIL) {
+         setAccess(true);
+         navigate('/home');
+      }
+   }
+
+   useEffect(() => {
+      !access && navigate('/');
+   }, [access]);
 
    const [characters, setCharacters] = useState([]);
 
@@ -79,15 +96,27 @@ export default function App() {
       });
    }
 
-   return (
-      <>
-         <Nav onSearch={onSearch} addRandom={randomHandler}/>
-         <Routes>
-            <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
-            <Route path='/about' element={<About/>}/>
-            <Route path='/detail/:id' element={<Detail/>}/>
-         </Routes>
-         
-      </>
-   );
+   const location = useLocation()
+
+   if(location.pathname === '/'){
+      return (
+         <>
+            <Routes>
+               <Route path='/' element={<Form login={login} />}/>
+            </Routes>
+         </>
+      )
+   }else {
+      return (
+         <>
+            <Nav onSearch={onSearch} addRandom={randomHandler}/>
+            <Routes>
+               <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
+               <Route path='/about' element={<About/>}/>
+               <Route path='/detail/:id' element={<Detail/>}/>
+            </Routes>
+         </>
+      );
+   }
+   
 }

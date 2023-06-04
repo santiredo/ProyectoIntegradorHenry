@@ -2,7 +2,7 @@ import styles from './card.module.css';
 import { NavLink } from 'react-router-dom';
 import bin from '../../img/basura.png'
 
-export default function Card({id, name, status, species, gender, origin, image, onClose}) {
+export default function Card({id, name, status, species, gender, image, onClose}) {
    return (
       <div className={styles.characters}>
          <img className={styles.bin} src={bin} alt={name} onClick={() => onClose(id)}/>
