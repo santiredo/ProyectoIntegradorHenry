@@ -15,6 +15,9 @@ export default function Nav(){
                     <NavLink to='/home' className={styles.navLink}>
                         Home
                     </NavLink>
+                    <NavLink to='/favourites' className={styles.navLink}>
+                        Favs
+                    </NavLink>
                 </div>
                 <div className={styles.optionsDiv}>
                     <img className={styles.options} src={options} alt="" />

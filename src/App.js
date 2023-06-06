@@ -2,6 +2,7 @@ import Cards from './components/Cards/Cards.jsx';
 import Nav from './components/Nav/Nav.jsx';
 import About from './views/About/About.jsx';
 import Detail from './views/Detail/Detail.jsx';
+import Favourites from './views/Favourites/Favourites.jsx'
 import Form from './views/Form/Form.jsx';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -12,8 +13,8 @@ export default function App() {
 
    const navigate = useNavigate();
    const [access, setAccess] = useState(false);
-   const EMAIL = 'santi16redo@gmail.com';
-   const PASSWORD = 'proyectorickymorty1';
+   const EMAIL = 'santi@gmail.com';
+   const PASSWORD = 'rickymorty1';
 
    function login(userData) {
       if (userData.password === PASSWORD && userData.email === EMAIL) {
@@ -114,6 +115,7 @@ export default function App() {
             <Routes>
                <Route path='/home' element={<Cards characters={characters} onClose={onClose} onSearch={onSearch} addRandom={randomHandler}/>}/>
                <Route path='/about' element={<About/>}/>
+               <Route path='/favourites' element={<Favourites />} />
                <Route path='/detail/:id' element={<Detail/>}/>
             </Routes>
          </>

@@ -7,13 +7,14 @@ export default function Cards({ characters, onClose, onSearch, addRandom }) {
 
    return (
       <section className={styles.homePage}>
-         <SearchBar onSearch={onSearch} addRandom={addRandom}/>
+         <div className={styles.searchBarDiv}><SearchBar onSearch={onSearch} addRandom={addRandom}/></div>
          <div className={styles.cardsDiv}>
             
             {   
                characters.map(char => {
                   return (
                      <Card
+                        char={char}
                         key={char.id}
                         id={char.id}
                         name={char.name}

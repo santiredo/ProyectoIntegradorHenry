@@ -7,10 +7,20 @@
     gap: 5px;
 }
 
-.bin{
-    display: grid;
-    justify-self: right;
-    margin-right: 80px;
+.divFav{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 30px;
+}
+
+.fav:hover{
+    cursor: pointer;
+}
+
+.isNotFav{
+    cursor: pointer;
 }
 
 .bin:hover {
@@ -77,7 +87,7 @@
     color:rgb(241, 207, 167);
     padding: 0 5px;
     text-decoration: none;
-    background: linear-gradient(rgb(128, 0, 128), rgb(71, 6, 71));
+    background: linear-gradient(#800080, #470647);
 }
 
 .cardBack a:hover{
