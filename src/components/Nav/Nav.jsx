@@ -1,11 +1,11 @@
-import SearchBar from "../SearchBar/SearchBar";
-import styles from "./nav.module.css";
 import React from "react";
 import { NavLink } from "react-router-dom";
+import options from '../../img/options.png'
+import optionsActive from '../../img/opitionsActive.png'
+import styles from "./nav.module.css";
 
-export default function Nav({onSearch, addRandom}){
+export default function Nav(){
     return (
-        <div className={styles.divNav}>
             <nav className={styles.navBar}>
                 <h1 className={styles.title}>Rick & Morty Project</h1>
                 <div className={styles.navDiv}>
@@ -16,8 +16,11 @@ export default function Nav({onSearch, addRandom}){
                         Home
                     </NavLink>
                 </div>
-                <SearchBar onSearch={onSearch} addRandom={addRandom}/>
+                <div className={styles.optionsDiv}>
+                    <img className={styles.options} src={options} alt="" />
+                    <img className={styles.optionsActive} src={optionsActive} alt="" />
+                </div>
+
             </nav>
-        </div>
     )
 }

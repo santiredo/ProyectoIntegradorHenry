@@ -23,7 +23,8 @@ export default function App() {
    }
 
    useEffect(() => {
-      !access && navigate('/');
+      !access && navigate('/')
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [access]);
 
    const [characters, setCharacters] = useState([]);
@@ -109,9 +110,9 @@ export default function App() {
    }else {
       return (
          <>
-            <Nav onSearch={onSearch} addRandom={randomHandler}/>
+            <Nav />
             <Routes>
-               <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
+               <Route path='/home' element={<Cards characters={characters} onClose={onClose} onSearch={onSearch} addRandom={randomHandler}/>}/>
                <Route path='/about' element={<About/>}/>
                <Route path='/detail/:id' element={<Detail/>}/>
             </Routes>

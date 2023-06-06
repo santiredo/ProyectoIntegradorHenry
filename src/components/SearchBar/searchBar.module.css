@@ -36,10 +36,11 @@
     border: none;
     border-radius: 5px;
     padding: 0 10px;
+    color: black;
 }
 
 .randomButton {
-    color: rgba(145, 240, 150);
+    color: rgb(241, 207, 167);
     font-family: 'Kanit', sans-serif;
     font-weight:0;
     font-size: 15px ;

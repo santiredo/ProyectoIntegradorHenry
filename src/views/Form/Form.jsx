@@ -3,13 +3,17 @@ import { useState } from "react";
 import validate from '../../components/Validation/Validation.js';
 import bienvenido from '../../img/bienvenido.jpg'
 import style from './form.module.css';
-import { toHaveAccessibleDescription } from "@testing-library/jest-dom/matchers.js";
 
 export default function LogInForm( {login} ){
 
     const [userData, setUserData] = useState({
         email: '',
-        password: ''
+        password: '',
+    })
+
+    const [errors, setErrors] = useState({
+        email: '',
+        password: '',
     })
 
     const handleChange = (e) =>{
@@ -18,15 +22,18 @@ export default function LogInForm( {login} ){
             [e.target.name]: e.target.value,
         });
 
-        validate({
-            ...userData,
-            [e.target.name]: e.target.value,
-        })
+        setErrors(
+            validate({
+                ...userData,
+                [e.target.name]: e.target.value,
+            })
+        )
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        login(userData);
+        if(!errors.email && !errors.password) login(userData);
+        else alert('Datos incorrectos')
     }
 
     return (

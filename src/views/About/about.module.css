@@ -204,7 +204,7 @@
 
 .infoCardsPlus:hover {
     transform-origin: bottom left;
-    transform: scaleX(2.07) scaleY(2.2);
+    transform: scaleX(2.08) scaleY(2.2);
     transition: 1s;
     border-radius: 6px;
 }
