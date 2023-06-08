@@ -52,12 +52,12 @@ export default function App() {
                   if(typeof value === 'string'){
                      if(value.toLowerCase() === id.toLowerCase()){
 
-                        filteredCharacters.push(char);
+                        filteredCharacters.unshift(char);
                         break;
                      }
                   } else if (typeof value === 'number'){
                      if(value === parseInt(id)){
-                        filteredCharacters.push(char);
+                        filteredCharacters.unshift(char);
                         break;
                      }
                   }
@@ -67,7 +67,7 @@ export default function App() {
          if(filteredCharacters.length === 0){
             window.alert('¡No hay personajes con este ID!');
          } else {
-            setCharacters((oldChars) => [...oldChars, ...filteredCharacters]);
+            setCharacters((oldChars) => [...filteredCharacters, ...oldChars]);
          }
       });
    }
@@ -90,7 +90,7 @@ export default function App() {
       fetch(`https://rickandmortyapi.com/api/character/${random}`)
       .then(res => res.json())
       .then((data) => {
-         setCharacters((oldChars) => [...oldChars, data]);
+         setCharacters((oldChars) => [data, ...oldChars]);
       })
       .catch((error) => {
          window.alert('Error al obtener el personaje');
@@ -115,7 +115,7 @@ export default function App() {
             <Routes>
                <Route path='/home' element={<Cards characters={characters} onClose={onClose} onSearch={onSearch} addRandom={randomHandler}/>}/>
                <Route path='/about' element={<About/>}/>
-               <Route path='/favourites' element={<Favourites />} />
+               <Route path='/favourites' element={<Favourites onClose={onClose}/>} />
                <Route path='/detail/:id' element={<Detail/>}/>
             </Routes>
          </>

@@ -1,11 +1,12 @@
 .navBar {
     top: 1%;
+    border-radius: 10px;
     display: grid;
     grid-template-columns: 4fr 2fr 0.5fr;
     justify-items: center;
     align-items: center;
     align-self: center;
-    background: linear-gradient(#a9ffae, rgba(145, 240, 150, 0.612));
+    background: linear-gradient(rgb(169, 255, 174), rgba(145, 240, 150, 0.612));
     width: 99%;
     position: fixed;
     z-index: 1000;
@@ -18,8 +19,6 @@
     flex-direction: row;
     gap: 30px;
 }
-
-
 
 .navLink {
     padding: 0 8px;

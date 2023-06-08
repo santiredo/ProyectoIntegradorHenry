@@ -3,10 +3,11 @@ import SearchBar from '../SearchBar/SearchBar';
 import styles from './cards.module.css';
 
 
+
 export default function Cards({ characters, onClose, onSearch, addRandom }) {
 
    return (
-      <section className={styles.homePage}>
+      <div className={styles.homePage}>
          <div className={styles.searchBarDiv}><SearchBar onSearch={onSearch} addRandom={addRandom}/></div>
          <div className={styles.cardsDiv}>
             
@@ -15,7 +16,7 @@ export default function Cards({ characters, onClose, onSearch, addRandom }) {
                   return (
                      <Card
                         char={char}
-                        key={char.id}
+                        key={char.name}
                         id={char.id}
                         name={char.name}
                         status={char.status}
@@ -29,6 +30,6 @@ export default function Cards({ characters, onClose, onSearch, addRandom }) {
                })
             }
          </div>
-      </section>
+      </div>
    );
 }

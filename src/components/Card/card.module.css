@@ -23,12 +23,6 @@
     cursor: pointer;
 }
 
-.bin:hover {
-    cursor: pointer;
-    transform: scale(1.5);
-    transition: 500ms;
-}
-
 .card {
     width: 185px;
     height: 185px;
