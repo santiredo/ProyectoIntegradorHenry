@@ -9,7 +9,6 @@ body {
 
 body::-webkit-scrollbar {
   display: none;
-  width: 10px;
 }
 
 code {

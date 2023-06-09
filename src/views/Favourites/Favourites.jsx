@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Card from "../../components/Card/Card";
 import { useState } from "react";
 import dropdown from '../../img/dropdown.png'
-import style from './favourites.module.css'
+import './favourites.css'
 
 export default function Favourites(){
 
@@ -15,69 +15,90 @@ export default function Favourites(){
     const handleOrder = (event) => {
         if(aux) setAux(false)
         else setAux(true)
-        dispatch(orderCards(event.target.value))
+        dispatch(orderCards(event.target.getAttribute('value')))
     }
 
     const handleFilter = (event) => {
-        dispatch(filterCards(event.target.value))
+        dispatch(filterCards(event.target.getAttribute('value')))
     }
 
-    const [isActive, setActive] = useState(false);
+    // SELECT:
 
-    const handleClick = () => {
-        setActive(!isActive)
+    const handleSelectOrder = (event) => {
+        const orderOptions = document.querySelector("#orderOptions")
+        orderOptions.classList.toggle('optionsActive');
+
+        event.currentTarget.classList.toggle('selectIdActiveActive')
+    }
+
+    const handleSelectGender = (event) => {
+        const genderOptions = document.querySelector('#genderOptions');
+        genderOptions.classList.toggle('optionsActive');
+
+        event.currentTarget.classList.toggle('selectGenderActive');
     }
 
     return (
-        <div className={style.myFavsPage}>
-            <div className={style.favFilters}>
-
-                <div className={style.selectBox}>
-                    <div className={`${style.selectId} ${isActive ? style.active : ''}`} onClick={handleClick}>
-                        <div className={style.selectedContent}>
-                            <p className={style.title}>FILTRAR POR ID</p>
+        <div className='myFavsPage'>
+            <div className='favFilters'>
+                <div className='selectBox'>
+                    <div onClick={handleSelectOrder} className='selectId' id="orderSelect">
+                        <div className='selectedContent'>
+                            <p className='title'>FILTRAR POR ID</p>
                         </div>
                         <img src={dropdown} alt="" />
-                    </div> 
-
-
-
-
-                    {/* options */}
+                    </div>
+                    <div className='options' id="orderOptions">
+                        <div className="option">
+                            <div className='containerOption'>
+                                <p onClick={handleOrder} value="A">ASCENDENTE</p>
+                            </div>
+                        </div>
+                        <div className="option">
+                            <div className='containerOption'>
+                                <p onClick={handleOrder} value="D">DESCENDENTE</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                
-
-                <div>
-                    <div className={`${style.selectGender} ${isActive ? style.active : ''}`} onClick={handleClick}>
-                        <div className={style.selectedContent}>
-                            <p className={style.title}>FILTRAR POR GENERO</p>
+                <div className='selectBox'>
+                    <div onClick={handleSelectGender} className='selectGender' id="genderSelect">
+                        <div className='selectedContent'>
+                            <p className='title'>FILTRAR POR GENERO</p>
                         </div>
                         <img src={dropdown} alt="" />
-                    </div> 
-
-
-
-
-                    {/* options */}
+                    </div>
+                    <div className='options' id="genderOptions">
+                        <div className="option">
+                            <div className='containerOption'>
+                                <p onClick={handleFilter} value="ShowAll">SHOW ALL</p>
+                            </div>
+                        </div>
+                        <div className="option">
+                            <div className='containerOption'>
+                                <p onClick={handleFilter} value="Male">MALE</p>
+                            </div>
+                        </div>
+                        <div className="option">
+                            <div className='containerOption'>
+                                <p onClick={handleFilter} value="Female">FEMALE</p>
+                            </div>
+                        </div>
+                        <div className="option">
+                            <div className='containerOption'>
+                                <p onClick={handleFilter} value="Genderless">GENDERLESS</p>
+                            </div>
+                        </div>
+                        <div className="option">
+                            <div className='containerOption'>
+                                <p onClick={handleFilter} value="unknown">UNKNOWN</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-
-
-                {/* <select onChange={handleOrder} className={style.select} name="" id="">
-                    <option disabled selected hidden value="">FILTRAR POR ID</option>
-                    <option value="A">ASCENDENTE</option>
-                    <option value="D">DESCENDENTE</option>
-                </select>
-                <select className={style.select} onChange={handleFilter} name="" id="">
-                    <option disabled selected hidden value="">FILTRAR POR GENERO</option>
-                    <option value="Male">MALE</option>
-                    <option value="Female">FEMALE</option>
-                    <option value="Genderless">GENDERLESS</option>
-                    <option value="unknown">UNKNOWN</option>
-                </select> */}
             </div>
-            <div className={style.favContainer}>
+            <div className='favContainer'>
                 {
                     myFavs?.map((fav) => {
                         return(

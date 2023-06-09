@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import options from '../../img/options.png'
-import optionsActive from '../../img/opitionsActive.png'
 import styles from "./nav.module.css";
 
 export default function Nav(){
@@ -21,7 +20,6 @@ export default function Nav(){
                 </div>
                 <div className={styles.optionsDiv}>
                     <img className={styles.options} src={options} alt="" />
-                    <img className={styles.optionsActive} src={optionsActive} alt="" />
                 </div>
 
             </nav>
