@@ -1,0 +1,45 @@
+.background{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.loginContainer {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loginPage{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 20px;
+    margin-right: 80px;
+    overflow: hidden;
+}
+
+.formsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formsContainer h1{
+    background-color: rgb(206, 194, 157);
+    padding: 5px 40px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+}
+
+.onlyForms{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
