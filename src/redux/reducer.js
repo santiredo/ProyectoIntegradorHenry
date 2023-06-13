@@ -1,7 +1,8 @@
 
 const initialState = {
     myFavs: [],
-    allCharacters: []
+    allCharacters: [],
+    registeredUsers: JSON.parse(localStorage.getItem('registeredUsers')) || []
 }
 
 export default function rootReducer(state = initialState, action) {
@@ -34,6 +35,15 @@ export default function rootReducer(state = initialState, action) {
                     return action.payload === 'D' && b.id - a.id;
                 })
             }
+        case 'REGISTER':
+            const updatedUsers = [...state.registeredUsers, action.payload];
+            localStorage.setItem('registeredUsers', JSON.stringify(updatedUsers))
+            return {
+
+                ...state,
+                registeredUsers: updatedUsers
+            }
+
             
         default:
             return state;

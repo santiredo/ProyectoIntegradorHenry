@@ -1,32 +1,52 @@
 
-export default function validation(input){
+export const validateRegister = (input) => {
 
     let errors = {}
-
-    let emailValue = document.getElementById('email').value;
-
     let validateEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
-
-    let passwordValue = document.getElementById('password').value;
-
     let validatePassword = /\d/;
 
-    if(!validateEmail.test(emailValue)){
-        errors.email = 'Username must be an email';
-    }
+    let registerEmail = document.getElementById('registerEmail').value;
+    let registerPassword = document.getElementById('registerPassword').value;
 
-    if(emailValue.length > 35){
-        errors.emailLength = 'Username must be less than 35 words'
+    if(!validateEmail.test(registerEmail)){
+        errors.registerEmail = 'Username must be an email';
     }
-
-    if(!validatePassword.test(passwordValue) || (passwordValue.length > 5 && passwordValue.length < 11)){
-        errors.password = 'Password must have a number'
+    if(registerEmail.length > 35){
+        errors.registerEmailLength = 'Username must be less than 35 words';
     }
-
-    if(passwordValue.length < 6 || passwordValue.length > 10){
-        errors.passwordLength = 'Password must have between 6 and 10 characters'
+    if(!validatePassword.test(registerPassword)){
+        errors.registerPassword = 'Password must have a number';
+    }
+    if(registerPassword.length < 6 || registerPassword.length > 10){
+        errors.registerPasswordLength = 'Password must have between 6 and 10 characters';
     }
 
     return errors;
 }
 
+
+
+export const validateLogIn = () => {
+
+    let errors = {}
+    let validateEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+    let validatePassword = /\d/;
+
+    let logInEmail = document.getElementById('email').value;
+    let logInPassword = document.getElementById('password').value;
+
+    if(!validateEmail.test(logInEmail)){
+        errors.email = 'Username must be an email';
+    }
+    if(logInEmail.length > 35){
+        errors.emailLength = 'Username must be less than 35 words';
+    }
+    if(!validatePassword.test(logInPassword)){
+        errors.password = 'Password must have a number';
+    }
+    if(logInPassword.length < 6 || logInPassword.length > 10){
+        errors.passwordLength = 'Password must have between 6 and 10 characters';
+    }
+
+    return errors;
+}

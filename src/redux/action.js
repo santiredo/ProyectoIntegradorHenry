@@ -25,3 +25,10 @@ export const orderCards = (order) => {
         payload: order
     }
 }
+
+export const registerUser = (user) => {
+    return {
+        type: 'REGISTER',
+        payload: user
+    }
+}

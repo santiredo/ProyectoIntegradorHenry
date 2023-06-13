@@ -3,30 +3,13 @@ import Nav from './components/Nav/Nav.jsx';
 import About from './views/About/About.jsx';
 import Detail from './views/Detail/Detail.jsx';
 import Favourites from './views/Favourites/Favourites.jsx'
-import Form from './views/Form/Form.jsx';
-import { useState, useEffect } from 'react';
+import Home from './views/Home/Home.jsx';
+import { useState } from 'react';
 import axios from 'axios';
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
 
 export default function App() {
-
-   const navigate = useNavigate();
-   const [access, setAccess] = useState(false);
-   const EMAIL = 'santi@gmail.com';
-   const PASSWORD = 'rickymorty1';
-
-   function login(userData) {
-      if (userData.password === PASSWORD && userData.email === EMAIL) {
-         setAccess(true);
-         navigate('/home');
-      }
-   }
-
-   useEffect(() => {
-      !access && navigate('/')
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [access]);
 
    const [characters, setCharacters] = useState([]);
 
@@ -104,7 +87,7 @@ export default function App() {
       return (
          <>
             <Routes>
-               <Route path='/' element={<Form login={login} />}/>
+               <Route path='/' element={<Home/>}/>
             </Routes>
          </>
       )
