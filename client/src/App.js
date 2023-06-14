@@ -15,30 +15,27 @@ export default function App() {
 
    function onSearch(id) {
 
-      axios(`http://localhost:3001/rickandmorty/character/${id}`)
-      
-         .then(({ data }) => {
+      axios(`http://localhost:3002/rickandmorty/character/${id}`)
+      .then(({ data }) => {
 
-            if(data && data.name){
-               setCharacters((oldChars) => {
-                  const existChar = oldChars.some((char => char.id === data.id));
-                  if(!existChar){
-                     return [data, ...oldChars];
-                  } else{
-                     return oldChars
-                  }
-               })               
-            } else {
-               window.alert('No existen personajes con ese ID')
-            }
+         if(data.name){
+            setCharacters((oldChars) => {
+               const existChar = oldChars.some((char => char.id === data.id));
+               if(!existChar){
+                  return [data, ...oldChars];
+               } else{
+                  alert('El personaje con el id ingresado ya esta agregado')
+                  return oldChars
+               }
+            })               
+         } else {
+            window.alert('No existen personajes con ese ID')
+         }
 
-         }).catch((error) => {
-            if (error.response && error.response.status === 404) {
-               window.alert('¡No se encontró ningún personaje con este ID!');
-            } else {
-               console.error(error)
-            }
-         });
+      })
+      .catch(error => {
+         alert(`Debe ingresar un id entre 1 y 826`)
+      })
    }
 
    /*          const filteredCharacters = [];
