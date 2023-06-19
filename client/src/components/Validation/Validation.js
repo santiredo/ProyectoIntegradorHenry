@@ -1,30 +1,4 @@
 
-export const validateRegister = (input) => {
-
-    let errors = {}
-    let validateEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
-    let validatePassword = /\d/;
-
-    let registerEmail = document.getElementById('registerEmail').value;
-    let registerPassword = document.getElementById('registerPassword').value;
-
-    if(!validateEmail.test(registerEmail)){
-        errors.registerEmail = 'Username must be an email';
-    }
-    if(registerEmail.length > 35){
-        errors.registerEmailLength = 'Username must be less than 35 words';
-    }
-    if(!validatePassword.test(registerPassword)){
-        errors.registerPassword = 'Password must have a number';
-    }
-    if(registerPassword.length < 6 || registerPassword.length > 10){
-        errors.registerPasswordLength = 'Password must have between 6 and 10 characters';
-    }
-
-    return errors;
-}
-
-
 
 export const validateLogIn = () => {
 

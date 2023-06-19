@@ -12,7 +12,7 @@ export default function About(){
             <div className={style.pageDiv}>
                 <div className={style.aboutMeDiv}>
                     <div className={style.perfil}>
-                        {<img className={style.myPhoto} src={myPhoto} alt="" srcset="" />}
+                        {<img className={style.myPhoto} src={myPhoto} alt=""/>}
                         <div className={style.perfilBack}> 
                             <p>Bariloche </p>
                             <p>Santi Redondo </p>

@@ -76,9 +76,6 @@
     display: none;
 }
 
-.options:hover{
-    cursor: pointer;
-}
 
 .optionsActive {
     color: rgb(206, 194, 157);

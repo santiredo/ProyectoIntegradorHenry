@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import {validateLogIn} from '../Validation/Validation.js';
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import axios from 'axios'
 import style from './logIn.module.css';
 
 
@@ -20,17 +20,15 @@ export default function LogIn(){
 
     const [errors, setErrors] = useState();
 
-    const registeredUsers = useSelector(state => state.registeredUsers)
-
     useEffect(() => {
         !access && navigate('/')
         // eslint-disable-next-line react-hooks/exhaustive-deps
      }, [access]);
 
-    const handleChange = (e) =>{
+    const handleChange = (event) =>{
         setUserData({
             ...userData,
-            [e.target.name]: e.target.value,
+            [event.target.name]: event.target.value,
         });
 
         setErrors(
@@ -38,23 +36,24 @@ export default function LogIn(){
         )
     }
 
+
     const handleLogin = (event) => {
-        event.preventDefault();
 
-        const validateErrors = validateLogIn()
+        event.preventDefault()
 
-        if(Object.keys(validateErrors).length === 0) {
-            const userExist = registeredUsers.find(user => user.email === userData.email && user.password === userData.password)
+        const url = 'http://localhost:3002/rickandmorty/login';
 
-            if(userExist) {
-                setAccess(true);
-                navigate('/home')
-            } else{
-                alert('Los datos ingresados no coinciden con ningun usuario registrado')
-            }
+        axios.post(url + `?email=${userData.email}&password=${userData.password}`)
 
-        }
+        .then(({data}) => {
+            const { access } = data;
+            setAccess(access);
+            console.log(access)
+            access && navigate('/home')
+        })
+
     }
+
 
     return (
         <>

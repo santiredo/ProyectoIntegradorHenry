@@ -1,13 +1,7 @@
 
 import bienvenido from '../../img/bienvenido.jpg'
-import Register from '../../components/LogIn/Register';
 import LogIn from '../../components/LogIn/LogIn';
-
-
 import style from './home.module.css';
-
-
-
 
 export default function Home () {
 
@@ -20,7 +14,6 @@ export default function Home () {
                     <div className={style.formsContainer}>
                         <h1>DO YOU HAVE AN ACCOUNT?</h1>
                         <div className={style.onlyForms}>
-                            <Register />
                             <LogIn />                        
                         </div>
                     </div>

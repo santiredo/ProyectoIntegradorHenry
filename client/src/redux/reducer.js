@@ -2,7 +2,6 @@
 const initialState = {
     myFavs: [],
     allCharacters: [],
-    registeredUsers: JSON.parse(localStorage.getItem('registeredUsers')) || []
 }
 
 export default function rootReducer(state = initialState, action) {
@@ -11,13 +10,13 @@ export default function rootReducer(state = initialState, action) {
         case 'ADD_FAV':
             return {
                 ...state,
-                myFavs: [...state.myFavs, action.payload],
-                allCharacters: [...state.allCharacters, action.payload]
+                myFavs: action.payload,
+                allCharacters: action.payload
             };
         case 'REMOVE_FAV':
             return {
                 ...state,
-                myFavs: state.myFavs.filter(fav => fav.id !== Number(action.payload))
+                myFavs: action.payload
             };
         case 'FILTER':
             let filteredFavs = state.allCharacters.filter(character => character.gender === action.payload);
@@ -35,15 +34,6 @@ export default function rootReducer(state = initialState, action) {
                     return action.payload === 'D' && b.id - a.id;
                 })
             }
-        case 'REGISTER':
-            const updatedUsers = [...state.registeredUsers, action.payload];
-            localStorage.setItem('registeredUsers', JSON.stringify(updatedUsers))
-            return {
-
-                ...state,
-                registeredUsers: updatedUsers
-            }
-
             
         default:
             return state;
