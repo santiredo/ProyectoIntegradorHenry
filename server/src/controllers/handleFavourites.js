@@ -3,8 +3,10 @@ let myFavourites = [];
 
 const postFav = (req, res) => {
     const character = req.body;
-    myFavourites.push(character)
-    return res.status(200).json(myFavourites)
+
+    myFavourites.push(character);
+
+    res.status(200).json(myFavourites);
 }
 
 const deleteFav = (req,res) => {
@@ -12,7 +14,9 @@ const deleteFav = (req,res) => {
 
     const characterFiltered = myFavourites.filter(favourite => favourite.id !== +id)
 
-    return res.status(200).json(characterFiltered)
+    myFavourites = characterFiltered
+
+    res.status(200).json(characterFiltered)
 }
 
 module.exports = {

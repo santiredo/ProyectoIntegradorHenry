@@ -13,10 +13,11 @@ export default function App() {
 
    const [characters, setCharacters] = useState([]);
 
-   function onSearch(id) {
+   async function onSearch(id) {
 
-      axios(`http://localhost:3002/rickandmorty/character/${id}`)
-      .then(({ data }) => {
+      try {
+         const response = await axios(`http://localhost:3002/rickandmorty/character/${id}`)
+         const data = response.data
 
          if(data.name){
             setCharacters((oldChars) => {
@@ -27,15 +28,14 @@ export default function App() {
                   alert('El personaje con el id ingresado ya esta agregado')
                   return oldChars
                }
-            })               
-         } else {
-            window.alert('No existen personajes con ese ID')
+            })
+         } else{
+            return alert('No existen personajes con ese ID')
          }
-
-      })
-      .catch(error => {
-         alert(`Debe ingresar un id entre 1 y 826`)
-      })
+         
+      } catch (error) {
+         alert('Debe ingresar un id entre 1 y 826')
+      }
    }
 
    function onClose(id){

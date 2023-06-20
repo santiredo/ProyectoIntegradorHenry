@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import {validateLogIn} from '../Validation/Validation.js';
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from 'axios'
 import style from './logIn.module.css';
 
@@ -20,6 +20,7 @@ export default function LogIn(){
 
     const [errors, setErrors] = useState();
 
+
     useEffect(() => {
         !access && navigate('/')
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -37,21 +38,22 @@ export default function LogIn(){
     }
 
 
-    const handleLogin = (event) => {
+    const handleLogin = async (event) => {
 
         event.preventDefault()
 
         const url = 'http://localhost:3002/rickandmorty/login';
 
-        axios.post(url + `?email=${userData.email}&password=${userData.password}`)
+        try {
+            const result = await axios.post(url + `?email=${userData.email}&password=${userData.password}`)
+            const {access} = result.data
 
-        .then(({data}) => {
-            const { access } = data;
-            setAccess(access);
-            console.log(access)
+            setAccess(access)
             access && navigate('/home')
-        })
 
+        } catch (error) {
+            alert('Datos incorrectos')
+        }
     }
 
 
