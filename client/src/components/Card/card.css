@@ -1,0 +1,22 @@
+.cardLeaving{
+    display: grid;
+    grid-template-rows: 1fr 185px 2fr;
+    width: 25%;
+    justify-items: center;
+    align-items: center;
+    gap: 5px;
+    animation: leaving 1s;
+}
+
+@keyframes leaving {
+
+    0%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-600px);
+        opacity: 0;
+    }
+    
+}

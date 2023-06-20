@@ -2,10 +2,11 @@ import {connect} from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
 import { addFav, removeFav } from '../../redux/action';
 import { useState, useEffect } from 'react';
-import styles from './card.module.css';
 import isNotFav from '../../img/isNotFav.png';
 import fav from '../../img/fav.png';
 import bin from '../../img/basura.png';
+import './card.css'
+import styles from './card.module.css';
 
 
 
@@ -37,7 +38,7 @@ function Card({char, id, name, status, species, gender, image, onClose, addFav, 
    const location = useLocation()
 
    return (
-      <div className={styles.characters}>
+      <div id={`character${id}`} className={styles.characters}>
          <div className={styles.divFav}>
             {
                isFav ? (

@@ -39,7 +39,19 @@ export default function App() {
    }
 
    function onClose(id){
-      setCharacters((oldChars) => oldChars.filter((char) => char.id !== id));
+
+      setTimeout(() => {
+         setCharacters((oldChars) => oldChars.filter((char) => char.id !== id));
+      }, 500);
+      
+      let deletedCharacter = document.getElementById(`character${id}`);
+
+      deletedCharacter.classList.remove('card_characters__UiQH-')
+
+      deletedCharacter.classList.add('cardLeaving');
+
+      console.log(deletedCharacter)
+
    }
 
    function randomHandler() {
