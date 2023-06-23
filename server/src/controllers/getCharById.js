@@ -11,6 +11,7 @@ const getCharById = async(req, res) => {
 
         if (result.name) {
             const character = {
+                key: result.id,
                 id: result.id,
                 name: result.name,
                 gender: result.gender,
@@ -23,7 +24,7 @@ const getCharById = async(req, res) => {
         }
         throw new Error('El id poporcionado no coincide con un personaje')
     } catch(error){
-        return error.message
+        return res.status(500).send(error.message)
     }
 }
 
