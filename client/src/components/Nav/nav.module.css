@@ -45,17 +45,92 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    height: 100%;
+    width: 100%;
 }
 
-.options{
-    position: absolute;
+.optionsImg{
     width: 30px;
     height: 30px;
 }
 
-.options:hover{
+.optionsImg:hover{
     cursor: pointer;
     transform:  rotate(360deg);
     transition: .7s;
+}
+
+.showOptions{
+    position: absolute;
+    border-radius: 5px;
+    right: 20px;
+    top: 65px;
+    background: linear-gradient( rgba(145, 240, 150, 0.746), rgba(63, 139, 67, 0.934));
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    animation: appear 1s ease-in-out;
+}
+
+@keyframes appear {
+    0%{
+        height: 0px;
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.2;
+    }
+    100%{
+        height: 200px;
+        opacity: 1;
+
+    }
+}
+
+.showOptions::before{
+    content: '';
+    display: block;
+    height: 0;
+    width: 0;
+    border-bottom: 8px solid rgba(145, 240, 150, 0.746);
+    border-right: 8px solid transparent;
+    border-top: 0 solid transparent;
+    border-left: 8px solid transparent;
+    position: absolute;
+    top: -8px;
+    right: 25px;
+}
+
+.showOptions a{
+    font-size: medium;
+    padding: 0 10px;
+    color: black;
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.showOptions div:hover{
+    cursor: pointer;
+    transform: translateX(20px);
+}
+
+.showOptions div{
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    transition: .5s;
+    animation: divAppear 1s;
+}
+
+.showOptions div:hover{
+    cursor: pointer;
+}
+
+.showOptions img{
+    width: 16px;
 }

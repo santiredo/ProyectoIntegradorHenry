@@ -45,3 +45,10 @@ export const orderCards = (order) => {
         payload: order
     }
 }
+
+export const setAccess = (access) => {
+    return {
+        type: 'SET_ACCESS',
+        payload: access
+    }
+}

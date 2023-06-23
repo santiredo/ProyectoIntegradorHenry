@@ -2,7 +2,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import {validateLogIn} from '../Validation/Validation.js';
 import {  useNavigate } from "react-router-dom";
-import axios from 'axios'
+import axios from 'axios';
+import { setAccess } from "../../redux/action.js";
+import { useDispatch, useSelector } from "react-redux";
 import style from './logIn.module.css';
 
 
@@ -11,8 +13,12 @@ export default function LogIn(){
 
     const navigate = useNavigate();
 
-    const [access, setAccess] = useState(false);
+    const access = useSelector(state => state.access)
 
+    const dispatch = useDispatch()
+
+/*     const [access, setAccess] = useState(false);
+ */
     const [userData, setUserData] = useState({
         email: '',
         password: '',
@@ -48,7 +54,7 @@ export default function LogIn(){
             const result = await axios.post(url + `?email=${userData.email}&password=${userData.password}`)
             const {access} = result.data
 
-            setAccess(access)
+            dispatch(setAccess(access))
             access && navigate('/home')
 
         } catch (error) {

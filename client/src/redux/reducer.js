@@ -2,6 +2,7 @@
 const initialState = {
     myFavs: [],
     allCharacters: [],
+    access: false
 }
 
 export default function rootReducer(state = initialState, action) {
@@ -34,6 +35,11 @@ export default function rootReducer(state = initialState, action) {
                     if(action.payload === 'A') return a.id - b.id;
                     return action.payload === 'D' && b.id - a.id;
                 })
+            }
+        case 'SET_ACCESS':
+            return {
+                ...state,
+                access: action.payload
             }
             
         default:
