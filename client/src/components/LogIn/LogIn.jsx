@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import {validateLogIn} from '../Validation/Validation.js';
-import { useLocation, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import axios from 'axios'
 import style from './logIn.module.css';
 

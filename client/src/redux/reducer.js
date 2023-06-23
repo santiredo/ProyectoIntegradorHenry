@@ -16,7 +16,8 @@ export default function rootReducer(state = initialState, action) {
         case 'REMOVE_FAV':
             return {
                 ...state,
-                myFavs: action.payload
+                myFavs: action.payload,
+                allCharacters: action.payload
             };
         case 'FILTER':
             let filteredFavs = state.allCharacters.filter(character => character.gender === action.payload);

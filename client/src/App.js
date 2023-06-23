@@ -31,7 +31,8 @@ export default function App() {
             })
          } else{
             return alert('No existen personajes con ese ID')
-         }
+         }            
+
          
       } catch (error) {
          alert('Debe ingresar un id entre 1 y 826')
@@ -46,12 +47,9 @@ export default function App() {
       
       let deletedCharacter = document.getElementById(`character${id}`);
 
-      deletedCharacter.classList.remove('card_characters__UiQH-')
+      deletedCharacter.classList.remove('card_characters__r0vB5')
 
       deletedCharacter.classList.add('cardLeaving');
-
-      console.log(deletedCharacter)
-
    }
 
    function randomHandler() {

@@ -21,6 +21,10 @@ export default function Favourites(){
     const handleFilter = (event) => {
         dispatch(filterCards(event.target.getAttribute('value')))
     }
+    
+    console.log(myFavs)
+    const allCharacters = useSelector(state => state.allCharacters)
+    console.log(allCharacters)
 
     // SELECT:
 
@@ -118,12 +122,3 @@ export default function Favourites(){
         </div>
     )
 }
-
-
-/* const mapStateToProps = (state) => {
-    return {
-        myFavs: state.myFavs,
-    }
-}
-
-export default connect(mapStateToProps, null)(Favourites) */

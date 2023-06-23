@@ -32,7 +32,7 @@ export default function Detail(){
                 </div>    
             </div>
             <div className={style.detailsContainer}>
-                <h3>{character.name}</h3>
+                <h3>{character.name}'s personal page</h3>
                 <span>Status: <p>{character.status}</p></span>
                 <span>Specie: <p>{character.species}</p></span>
                 <span>Gender: <p>{character.gender}</p></span>
