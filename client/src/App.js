@@ -3,7 +3,7 @@ import Nav from './components/Nav/Nav.jsx';
 import About from './views/About/About.jsx';
 import Detail from './views/Detail/Detail.jsx';
 import Favourites from './views/Favourites/Favourites.jsx'
-import Home from './views/Home/Home.jsx';
+import EntranceHall from './views/EntranceHall/EntranceHall.jsx';
 import { useState } from 'react';
 import axios from 'axios';
 import { Route, Routes, useLocation } from 'react-router-dom';
@@ -80,7 +80,7 @@ export default function App() {
       return (
          <>
             <Routes>
-               <Route path='/' element={<Home/>}/>
+               <Route path='/' element={<EntranceHall/>}/>
             </Routes>
          </>
       )

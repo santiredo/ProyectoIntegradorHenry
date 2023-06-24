@@ -11,7 +11,6 @@
     gap: 20px;
     border-radius: 10px;
     z-index: 1000;
-    background-image: url(/src/img/background.jpg);
 }
 
 h2 {
@@ -31,7 +30,6 @@ h2 {
     gap: 20px;
     border-radius: 10px;
     z-index: 1000;
-    background-image: url(/src/img/background.jpg);
 }
 
 .input {
@@ -44,9 +42,12 @@ h2 {
 }
 
 .input span{
+    padding: 5px;
+    border-radius: 5px;
     position: absolute;
     font-size: small;
     color: red;
+    background-color: rgb(17, 4, 25);
     letter-spacing: 1px;
     line-height: 100%;
     top: 70%;
@@ -69,7 +70,7 @@ h2 {
 }
 
 button{
-    border: none;
+    border: 1px solid rgb(206, 194, 157);
     border-radius: 5px;
     padding: 5px 30px;
     color: rgb(206, 194, 157);
@@ -77,11 +78,35 @@ button{
     font-weight: 700;
     letter-spacing: 2px;
     font-size: large;
-    background-color: rgb(102, 23, 102);
+    background-color: rgb(64, 27, 88);
+    position: relative;
+    overflow: hidden;
+    transition: .3s;
+    z-index: -2;
 }
 
 button:hover{
     cursor: pointer;
-    color: black;
-    background-color: rgb(91, 212, 91);
+    transform: scale(1.1);
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(to right, rgb(17, 4, 25), rgb(17, 4, 25), rgb(17, 4, 25), rgb(64, 27, 88)) ;
+    transition: width .8s ;
+    z-index: -1;
+}
+
+button:hover::before{
+    border-radius: 5px;
+    width: 90%;
+}
+
+button:active::before{
+    width: 100%;
 }
