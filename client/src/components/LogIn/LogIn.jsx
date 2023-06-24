@@ -55,7 +55,11 @@ export default function LogIn(){
             const {access} = result.data
 
             dispatch(setAccess(access))
-            access && navigate('/home')
+
+            setTimeout(() => {
+                access && navigate('/home')
+            }, 2000);
+            
 
         } catch (error) {
             alert('Datos incorrectos')
