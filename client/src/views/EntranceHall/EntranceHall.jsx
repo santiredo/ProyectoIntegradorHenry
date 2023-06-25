@@ -9,15 +9,9 @@ export default function EntranceHall () {
     return (
         <div className={style.entrancePage}>
             <img src={background} alt="" className={style.background} />
-            <div className={style.loginContainer}>
-                <div className={style.loginPage}>
-                    <div className={style.formsContainer}>
-                        <h1>DO YOU HAVE AN ACCOUNT?</h1>
-                        <div className={style.onlyForms}>
-                            <LogIn />                        
-                        </div>
-                    </div>
-                </div>
+            <h1>Welcome !!!</h1>
+            <div className={style.onlyForms}>
+                <LogIn />
             </div>
         </div>
     )

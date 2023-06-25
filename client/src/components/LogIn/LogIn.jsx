@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect }from "react";
 import {validateLogIn} from '../Validation/Validation.js';
 import {  useNavigate } from "react-router-dom";
 import axios from 'axios';
@@ -17,14 +16,12 @@ export default function LogIn(){
 
     const dispatch = useDispatch()
 
-/*     const [access, setAccess] = useState(false);
- */
     const [userData, setUserData] = useState({
         email: '',
         password: '',
     })
 
-    const [errors, setErrors] = useState();
+    const [errors, setErrors] = useState({});
 
 
     useEffect(() => {
@@ -39,7 +36,7 @@ export default function LogIn(){
         });
 
         setErrors(
-            validateLogIn()
+            validateLogIn(userData)
         )
     }
 
@@ -56,9 +53,7 @@ export default function LogIn(){
 
             dispatch(setAccess(access))
 
-            setTimeout(() => {
-                access && navigate('/home')
-            }, 2000);
+            access && navigate('/home')
             
 
         } catch (error) {
@@ -80,7 +75,8 @@ export default function LogIn(){
                         onChange={handleChange}
                         placeholder="user@name.com"
                     />
-                    {errors?.email && <span>{errors.email}</span>}
+                    {errors?.email && <p>{errors.email}</p>}
+                    {!errors?.emailLength ? <span className={style.okSpan}>'Must be less than 35 words.'</span> : <span className={style.errorSpanSpan}>'Must be less than 35 words.'</span>}
                 </div>
                 <div className={style.input}>
                     <label>Password</label>
@@ -92,7 +88,8 @@ export default function LogIn(){
                         onChange={handleChange}
                         placeholder="..."
                     />
-                    {errors?.password && <span>{errors.password}</span>}
+                    {errors?.password && <span  className={style.errorSpan}>{errors.password}</span>}
+                    {errors?.passwordLength && <p>{errors.passwordLength}</p>}
                 </div>
                 <button type='submit'>Log in</button>
             </form>

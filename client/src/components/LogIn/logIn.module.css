@@ -1,57 +1,61 @@
 .loginForm{
-    display: grid;
-    align-self: center;
-    justify-self: center;
-    padding: 30px 20px;
+    padding: 20px 20px;
     color: rgb(206, 194, 157);
     letter-spacing: 1px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    border-radius: 10px;
-    z-index: 1000;
-}
-
-h2 {
-    margin: 0;
-}
-
-.registerForm{
-    display: grid;
-    align-self: center;
-    justify-self: center;
-    padding: 30px 20px;
-    color: rgb(206, 194, 157);
-    letter-spacing: 1px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    border-radius: 10px;
     z-index: 1000;
 }
 
 .input {
     display: flex;
     flex-direction: column;
-    gap: 2px;
     font-size: 20px;
-    height: 100px;
+    height: 110px;
+    font-weight: 800;
+    letter-spacing: 2px;
     position: relative;
+    padding: 0 10px;
+    border-radius: 5px;
 }
 
+
 .input span{
-    padding: 5px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    position: absolute;
+    font-size: small;
+    background-color: rgb(17, 4, 25);
+    letter-spacing: 1.1px;
+    line-height: 100%;
+    top: 62%;
+    left: 3%;
+}
+
+.okSpan {
+    color: greenyellow;
+}
+
+.errorSpan{
+    font-weight: 900;
+    color: red;
+}
+
+.input p{
+    margin: 0px;
+    padding: 3px 8px;
     border-radius: 5px;
     position: absolute;
     font-size: small;
     color: red;
     background-color: rgb(17, 4, 25);
-    letter-spacing: 1px;
+    letter-spacing: 1.1px;
+    font-weight: 900;
     line-height: 100%;
-    top: 70%;
-    left: 5%;
+    top: 80%;
+    left: 3%;
 }
 
 .input input{
@@ -59,7 +63,7 @@ h2 {
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
-    width: 200px;
+    width: 300px;
     font-family: 'Kanit', sans-serif;
     font-size: medium;
 }
@@ -69,8 +73,8 @@ h2 {
     justify-self: center ;
 }
 
-button{
-    border: 1px solid rgb(206, 194, 157);
+.loginForm button{
+    border: none;
     border-radius: 5px;
     padding: 5px 30px;
     color: rgb(206, 194, 157);
@@ -85,12 +89,12 @@ button{
     z-index: -2;
 }
 
-button:hover{
+.loginForm button:hover{
     cursor: pointer;
     transform: scale(1.1);
 }
 
-button::before {
+.loginForm button::before {
     content: '';
     position: absolute;
     top: 0;
@@ -102,8 +106,40 @@ button::before {
     z-index: -1;
 }
 
-button:hover::before{
+.loginForm button:hover::before{
     border-radius: 5px;
     transition: width 1.5s;
     width: 200%;
+}
+
+@media (max-width: 550px) {
+    
+    .loginForm{
+        padding: 20px 0;
+        gap: 5px;
+    }
+
+    .input span{
+        top: 48%;
+        left: 4%;
+        font-size: 11px;
+    }
+
+    .input p{
+        top: 66%;
+        left: 4%;
+
+        font-size: 11px;
+    }
+
+    .input {
+        font-size: 15px;
+        
+    }
+
+    .input input {
+        font-size: small;
+        width: 180px;
+        height: 15px;
+    }
 }
