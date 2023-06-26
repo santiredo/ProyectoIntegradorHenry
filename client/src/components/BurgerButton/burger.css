@@ -100,3 +100,37 @@
     left: 18px;
     bottom: 6px;
 }
+
+@media (max-width: 350px){
+
+    .nav-icon-1{
+        width: 21px;
+        height: 21px;
+    }
+
+    .nav-icon-1 span:nth-child(2){
+        left: 8px;
+        top: 0;
+    }
+
+    .nav-icon-1 span:nth-child(4){
+        left: 0;
+        top: 8px;
+    }
+
+    .nav-icon-1 span:nth-child(5){
+        left: 8px;
+        top: 8px;
+    }
+
+    .nav-icon-1 span:nth-child(6){
+        right: 0;
+        top: 8px;
+    }
+
+    .nav-icon-1 span:nth-child(8){
+        left: 8px;
+        bottom: 0;
+    }
+
+}

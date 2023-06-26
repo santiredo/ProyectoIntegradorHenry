@@ -27,22 +27,19 @@ export default function Nav(){
         if(!views) {
             setViews(true)            
 
-            navDiv.classList.remove('nav_navDiv__oTgwC')
+            navDiv.classList.remove('navDisplayNone')
             navDiv.classList.add('navDivMobile')
             
-            console.log(navDiv)
-
         } else{
+            setViews(false)
+
             setTimeout(() => {
-                setViews(false)
+                navDiv.classList.remove('nav_navDiv__oTgwC')
+                navDiv.classList.add('navDisplayNone')
             }, 800);
             
-            console.log(views)
-
             navDiv.classList.remove('navDivMobile')
             navDiv.classList.add('nav_navDiv__oTgwC')
-            console.log(navDiv)
-
         }
 
     }
@@ -72,12 +69,12 @@ export default function Nav(){
     return (
             <nav className={styles.navBar}>
                 <h1 className={styles.title}>Rick & Morty Project</h1>
-                <h1 className={styles.mobileTitle}> R & M Project</h1>
+                <h1 className={styles.mobileTitle}> Rick&Morty</h1>
                 <div className={styles.viewsContainer}>
                     <div className={styles.burgerButton}>
                         <BurgerButton handleViews={handleViews} />
                     </div>
-                    <div id="navDiv" className={styles.navDiv}>
+                    <div id="navDiv" className={'navDisplayNone'}>
                         <NavLink to='/home' className={styles.navLink}>
                             Home
                         </NavLink>

@@ -20,3 +20,11 @@
     flex-direction: column;
     gap: 50px;
 }
+
+@media (max-width: 400px) {
+
+    .homePage{
+        margin-top: 100px;
+    }
+
+}

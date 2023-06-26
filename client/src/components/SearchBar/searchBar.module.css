@@ -63,3 +63,27 @@
     transform: scale(1.1);
     transition: 500ms;
 }
+
+
+/* APLICANDO MEDIA QUERIES */
+
+@media (max-width: 400px) {
+
+    .searchBar{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .divAdd{
+        flex-direction: row;
+    }
+
+}
+
+@media (max-width: 270px) {
+
+    .input{
+        width: 200px;
+    }
+
+}

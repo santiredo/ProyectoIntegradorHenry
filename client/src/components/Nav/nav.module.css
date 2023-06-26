@@ -11,15 +11,6 @@
     z-index: 1000;
 }
 
-.navDiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    position: relative;
-    gap: 30px;
-}
-
 .navLink {
     padding: 0 8px;
     font-weight: 700;
@@ -54,6 +45,7 @@
 }
 
 .optionsImg{
+    margin: 5px;
     width: 30px;
     height: 30px;
 }
@@ -198,23 +190,27 @@
         width: 180px;
         height: 90px;
         display: flex;
-        opacity: 0;
+        justify-content: center;
+        align-items: center;
         gap: 15px;
         flex-direction: column;
         padding: 10px 0;
-        /* animation: viewsDisappear 1s ease-in-out; */
+        animation: viewsDisappear 1s ease-in-out;
     }
 
-    /* @keyframes viewsDisappear {
+    @keyframes viewsDisappear {
         0%{
             height: 90px;
             opacity: 1;
+        }
+        55%{
+            opacity: 0;
         }
         100%{
             height: 0px;
             opacity: 0;
         }
-    } */
+    }
 
     .navDiv::before{
         content: '';
@@ -247,6 +243,11 @@
 
 @media (max-width: 500px) {
 
+    .navBar{
+        justify-content: center;
+        gap: 15px;
+    }
+
     .mobileTitle{
         display:block;
         margin: 10px;
@@ -255,6 +256,39 @@
 
     .title{
         display: none;
-    }  
+    }
+}
 
+@media (max-width: 350px){
+
+    .navDiv{
+        width: 120px;
+    }
+
+    .mobileTitle{
+        display:block;
+        margin: 10px;
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 270px) {
+
+    .mobileTitle{
+        display:block;
+        margin: 10px;
+        font-size: 20px;
+    }
+
+    .navBar{
+        width: 90%;
+        justify-content: center;
+        gap: 0;
+    }
+
+    .optionsImg{
+        width: 25px;
+        height: 25px;
+    }
+    
 }
