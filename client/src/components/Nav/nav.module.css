@@ -1,13 +1,12 @@
 .navBar {
     top: 1%;
     border-radius: 10px;
-    display: grid;
-    grid-template-columns: 4fr 2fr 0.5fr;
-    justify-items: center;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
     align-items: center;
-    align-self: center;
     background: linear-gradient(rgb(169, 255, 174), rgba(145, 240, 150, 0.612));
-    width: 99%;
+    width: 98%;
     position: fixed;
     z-index: 1000;
 }
@@ -17,6 +16,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    position: relative;
     gap: 30px;
 }
 
@@ -29,24 +29,28 @@
     border: none;
     border-radius: 5px;
     text-decoration: none;
+    z-index: 1000;
 }
- .navLink:hover{
+.navLink:hover{
     cursor: pointer;
     transform: scale(1.1);
     transition: 500ms;
- }
+}
 
 .title {
     margin: 10px;
     font-size: 35px;
 }
 
+.mobileTitle{
+    display: none;
+}
+
 .optionsDiv{
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    width: 100%;
 }
 
 .optionsImg{
@@ -63,21 +67,20 @@
 .showOptions{
     position: absolute;
     border-radius: 5px;
-    right: 20px;
-    top: 65px;
-    background: linear-gradient( rgba(145, 240, 150, 0.746), rgba(63, 139, 67, 0.934));
+    top: 48px;
+    background-color: rgb(145, 240, 150);
     width: 200px;
     height: 200px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-evenly;
-    animation: appear 1s ease-in-out;
+    animation: optionsAppear 1s ease-in-out;
 }
 
-@keyframes appear {
+@keyframes optionsAppear {
     0%{
-        height: 0px;
+        height: 0%;
         opacity: 0;
     }
     50%{
@@ -95,13 +98,13 @@
     display: block;
     height: 0;
     width: 0;
-    border-bottom: 8px solid rgba(145, 240, 150, 0.746);
-    border-right: 8px solid transparent;
+    border-bottom: 10px solid rgba(145, 240, 150);
+    border-right: 10px solid transparent;
     border-top: 0 solid transparent;
-    border-left: 8px solid transparent;
+    border-left: 10px solid transparent;
     position: absolute;
-    top: -8px;
-    right: 25px;
+    top: -9px;
+    right: calc(50% - 10px);
 }
 
 .showOptions a{
@@ -118,6 +121,11 @@
     transform: translateX(20px);
 }
 
+.burgerButton{
+    display: flex;
+    justify-content: center;
+}
+
 .showOptions div{
     gap: 5px;
     display: flex;
@@ -127,10 +135,126 @@
     animation: divAppear 1s;
 }
 
+@keyframes divAppear {
+    0%{
+        opacity: 0;
+    }
+    25%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
 .showOptions div:hover{
     cursor: pointer;
 }
 
 .showOptions img{
     width: 16px;
+}
+
+/* IMPLEMENTACION DE MEDIA QUERIES */
+
+@media (max-width: 1150px) {
+
+    .navBar {
+        justify-content: space-evenly;
+    }
+
+    .showOptions{
+        width: 150px;
+    }
+
+}
+
+@media (max-width: 850px) {
+
+    .showOptions{
+        right: -75%;
+    }
+
+    .showOptions::before{
+        right: calc(25% - 10px);
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .viewsContainer{
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+
+    .navDiv{
+        margin: 0;
+        position: absolute;
+        border-radius: 10px;
+        top: 58px;
+        background:linear-gradient(rgb(128, 0, 128),rgb(71, 6, 71));
+        width: 180px;
+        height: 90px;
+        display: flex;
+        opacity: 0;
+        gap: 15px;
+        flex-direction: column;
+        padding: 10px 0;
+        /* animation: viewsDisappear 1s ease-in-out; */
+    }
+
+    /* @keyframes viewsDisappear {
+        0%{
+            height: 90px;
+            opacity: 1;
+        }
+        100%{
+            height: 0px;
+            opacity: 0;
+        }
+    } */
+
+    .navDiv::before{
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+        border-bottom: 10px solid rgb(128, 0, 128);
+        border-right: 10px solid transparent;
+        border-top: 0 solid transparent;
+        border-left: 10px solid transparent;
+        position: absolute;
+        top: -9px;
+        right: calc(50% - 10px);
+    }
+
+    .navLink {
+        font-size: small;
+    }
+    
+}
+
+@media (min-width: 701px) {
+
+    .burgerButton{
+
+        display: none;
+    }  
+
+}
+
+@media (max-width: 500px) {
+
+    .mobileTitle{
+        display:block;
+        margin: 10px;
+        font-size: 35px;
+    }
+
+    .title{
+        display: none;
+    }  
+
 }

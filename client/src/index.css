@@ -1,4 +1,6 @@
 body {
+  margin: 0;
+  padding: 0;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;  
   background-image: url(/src/img/background.jpg);

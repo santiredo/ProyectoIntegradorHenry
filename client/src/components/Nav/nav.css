@@ -1,9 +1,8 @@
 .hideOptions{
     position: absolute;
     border-radius: 5px;
-    right: 20px;
-    top: 65px;
-    background: linear-gradient( rgba(145, 240, 150, 0.746), rgba(63, 139, 67, 0.934));
+    top: 48px;
+    background-color: rgb(145, 240, 150);
     width: 200px;
     height: 200px;
     display: flex;
@@ -28,13 +27,13 @@
     display: block;
     height: 0;
     width: 0;
-    border-bottom: 8px solid rgb(145, 240, 150);
-    border-right: 8px solid transparent;
+    border-bottom: 10px solid rgba(145, 240, 150);
+    border-right: 10px solid transparent;
     border-top: 0 solid transparent;
-    border-left: 8px solid transparent;
+    border-left: 10px solid transparent;
     position: absolute;
-    top: -8px;
-    right: 25px;
+    top: -9px;
+    right: calc(50% - 10px);
 }
 
 .hideOptions a{
@@ -79,3 +78,93 @@
 .hideOptions img{
     width: 16px;
 }
+
+/* IMPLEMENTACION DE MEDIA QUERIES */
+
+@media (max-width: 700px) {
+
+    .navDivMobile{
+        margin: 0;
+        position: absolute;
+        border-radius: 10px;
+        top: 58px;
+        background:linear-gradient(rgb(128, 0, 128),rgb(71, 6, 71));
+        width: 180px;
+        height: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        flex-direction: column;
+        padding: 10px 0;
+        animation: viewsAppear 1s ease-in-out;
+    }
+    
+    @keyframes viewsAppear {
+        0%{
+            height: 0px;
+            opacity: 0;
+        }
+        50%{
+            opacity: 0.2;
+        }
+        100%{
+            height: 90px;
+            opacity: 1;
+        }
+    }
+    
+    .navDivMobile::before{
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+        border-bottom: 10px solid rgb(128, 0, 128);
+        border-right: 10px solid transparent;
+        border-top: 0 solid transparent;
+        border-left: 10px solid transparent;
+        position: absolute;
+        top: -9px;
+        right: calc(50% - 10px);
+    }
+
+    .navDivMobile a{
+        font-size: small;
+        animation: appear 1s;
+    }
+
+    @keyframes appear {
+        0%{
+            opacity: 0;
+        }
+        50%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+}
+
+
+
+@media (max-width: 1150px) {
+
+    .hideOptions{
+        width: 150px;
+    }
+
+}
+
+@media (max-width: 850px) {
+
+    .hideOptions{
+        right: -75%;
+    }
+
+    .hideOptions::before{
+        right: calc(25% - 10px);
+    }
+
+}
+

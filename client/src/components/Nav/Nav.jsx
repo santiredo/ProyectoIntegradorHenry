@@ -9,18 +9,46 @@ import './nav.css'
 import styles from "./nav.module.css";
 import { useDispatch } from "react-redux";
 import { setAccess } from "../../redux/action";
+import BurgerButton from "../BurgerButton/BurgerButton";
 
 export default function Nav(){
 
-    const [options, setOptions] = useState(false)
+    const [options, setOptions] = useState(false);
+
+    const [views, setViews] = useState(false)
 
     const navigate = useNavigate()
 
     const dispatch = useDispatch()
 
+    const handleViews = () => {
+        let navDiv = document.querySelector('#navDiv');
+
+        if(!views) {
+            setViews(true)            
+
+            navDiv.classList.remove('nav_navDiv__oTgwC')
+            navDiv.classList.add('navDivMobile')
+            
+            console.log(navDiv)
+
+        } else{
+            setTimeout(() => {
+                setViews(false)
+            }, 800);
+            
+            console.log(views)
+
+            navDiv.classList.remove('navDivMobile')
+            navDiv.classList.add('nav_navDiv__oTgwC')
+            console.log(navDiv)
+
+        }
+
+    }
+
     const handleOptions = () => {
         let optionsDiv = document.querySelector('#optionsDiv')
-
 
         console.log(optionsDiv)
 
@@ -44,16 +72,22 @@ export default function Nav(){
     return (
             <nav className={styles.navBar}>
                 <h1 className={styles.title}>Rick & Morty Project</h1>
-                <div className={styles.navDiv}>
-                    <NavLink to='/about' className={styles.navLink}>
-                        About me
-                    </NavLink>
-                    <NavLink to='/home' className={styles.navLink}>
-                        Home
-                    </NavLink>
-                    <NavLink to='/favourites' className={styles.navLink}>
-                        Favs
-                    </NavLink>
+                <h1 className={styles.mobileTitle}> R & M Project</h1>
+                <div className={styles.viewsContainer}>
+                    <div className={styles.burgerButton}>
+                        <BurgerButton handleViews={handleViews} />
+                    </div>
+                    <div id="navDiv" className={styles.navDiv}>
+                        <NavLink to='/home' className={styles.navLink}>
+                            Home
+                        </NavLink>
+                        <NavLink to='/about' className={styles.navLink}>
+                            About me
+                        </NavLink>
+                        <NavLink to='/favourites' className={styles.navLink}>
+                            Favs
+                        </NavLink>
+                    </div>
                 </div>
                 <div className={styles.optionsDiv}>
                         <img className={styles.optionsImg} src={optionsImg} onClick={handleOptions} alt="" />
@@ -68,7 +102,6 @@ export default function Nav(){
                             </div>
                         )
                     }
-
                 </div>
             </nav>
     )
