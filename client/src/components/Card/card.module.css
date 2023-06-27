@@ -1,10 +1,10 @@
 .characters {
     display: grid;
     grid-template-rows: 1fr 185px 2fr;
-    width: 25%;
+    width: 270px;
     justify-items: center;
     align-items: center;
-    gap: 5px;
+    gap: 5%;
     animation: appear 1s ease-in-out ;
 }
 
@@ -210,4 +210,60 @@
 .name:hover .plusInfo{
     opacity: 1;
     transition: 1s;
+}
+
+
+@media (max-width: 1250px) {
+
+    .characters {
+        width: 225px;
+    }
+
+}
+
+@media (max-width: 1000px) {
+
+    .characters {
+        width: 31.33%;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .characters {
+        width: 48%;
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    .characters{
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 350px) {
+
+    .characters{
+        grid-template-rows: 1fr 120px 2fr;
+    }
+
+    .card {
+        width: 120px;
+        height: 120px;
+    }
+
+    .cardFront{
+        width: 100%;
+        height: 100%;
+    }
+
+    .cardBack{
+        width: 100%;
+        height: 100%;
+    }
+
 }

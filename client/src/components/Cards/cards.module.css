@@ -4,6 +4,8 @@
     flex-direction: row;
     margin-bottom: 100px;
     row-gap: 50px;
+    width: 1200px;
+    column-gap: 40px;
 }
 
 .searchBarDiv{
@@ -18,10 +20,41 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 50px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 1250px) {
+
+    .cardsDiv{
+        width: 960px;
+        column-gap: 20px;
+    }
+}
+
+@media (max-width: 1000px) {
+
+    .cardsDiv {
+        width: 95%;
+        column-gap: 3%;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .cardsDiv {
+        width: 85%;
+        column-gap: 4%;
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    .cardsDiv{
+        width: 90%;
+    }
 
     .homePage{
         margin-top: 100px;

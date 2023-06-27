@@ -67,7 +67,7 @@
 
 /* APLICANDO MEDIA QUERIES */
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
 
     .searchBar{
         flex-direction: column;
