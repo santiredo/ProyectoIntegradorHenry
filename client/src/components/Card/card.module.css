@@ -212,6 +212,15 @@
     transition: 1s;
 }
 
+/* APLICANDO MEDIA QUERIES */
+
+@media (min-width: 1500px) {
+
+    .characters{
+        width: 300px;
+    }
+}
+
 
 @media (max-width: 1250px) {
 

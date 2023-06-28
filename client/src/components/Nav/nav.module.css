@@ -11,17 +11,28 @@
     z-index: 1000;
 }
 
+.adjustNav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
 .navLink {
     padding: 0 8px;
     font-weight: 700;
+    width: 90px;
+    text-align: center;
     color: black;
     font-family: 'Kanit', sans-serif;
+    font-size: 15px;
     background: linear-gradient(rgb(145, 240, 150),rgb(169, 255, 174));
     border: none;
     border-radius: 5px;
     text-decoration: none;
     z-index: 1000;
 }
+
 .navLink:hover{
     cursor: pointer;
     transform: scale(1.1);
@@ -99,7 +110,7 @@
     right: calc(50% - 10px);
 }
 
-.showOptions a{
+.showOptions p{
     font-size: medium;
     padding: 0 10px;
     color: black;
@@ -149,6 +160,23 @@
 
 /* IMPLEMENTACION DE MEDIA QUERIES */
 
+@media (min-width: 1900px) {
+
+    .adjustNav{
+        width: 1400px;
+        justify-content: space-between;
+    }
+
+}
+
+@media (min-width: 1500px) {
+
+    .navLink{
+        width: 120px;
+        font-size: 20px;
+    }
+}
+
 @media (max-width: 1150px) {
 
     .navBar {
@@ -171,10 +199,6 @@
         right: calc(25% - 10px);
     }
 
-}
-
-@media (max-width: 700px) {
-
     .viewsContainer{
         position: relative;
         display: flex;
@@ -194,7 +218,7 @@
         align-items: center;
         gap: 15px;
         flex-direction: column;
-        padding: 10px 0;
+        padding: 30px 0;
         animation: viewsDisappear 1s ease-in-out;
     }
 
@@ -227,12 +251,12 @@
     }
 
     .navLink {
-        font-size: small;
+        font-size: medium;
     }
     
 }
 
-@media (min-width: 701px) {
+@media (min-width: 851px) {
 
     .burgerButton{
 
@@ -281,7 +305,7 @@
     }
 
     .navBar{
-        width: 90%;
+        width: 95%;
         justify-content: center;
         gap: 0;
     }

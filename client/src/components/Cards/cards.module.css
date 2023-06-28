@@ -24,6 +24,16 @@
     gap: 50px;
 }
 
+/* APLICACION DE MEDIA QUERIES */
+
+@media (min-width: 1500px) {
+
+    .cardsDiv{
+        width: 1500px;
+        column-gap: 100px;
+    }
+}
+
 @media (max-width: 1250px) {
 
     .cardsDiv{

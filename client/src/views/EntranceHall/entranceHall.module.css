@@ -3,15 +3,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 50px 0;
+    margin: 100px 0 0 0;
 }
 
 .h1{
-    padding: 0;
     color: rgb(169, 255, 174);
-    border-radius: 5px;
     letter-spacing: 3px;
-    font-size: 40px;
+    font-size: 80px;
     z-index: 1;
 }
 
@@ -29,4 +27,36 @@
     height: 100%;
     object-fit:cover;
     z-index: 0;
+}
+
+@media (max-width: 1200px) {
+
+    .entrancePage {
+        margin-top: 30px;
+    }
+
+}
+
+@media (max-width: 1000px) {
+
+    .entrancePage {
+        margin-top: 10px;
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .h1{
+        font-size: 60px;
+    }
+
+}
+
+@media (min-width: 2000px) {
+
+    .h1{
+        letter-spacing: 10px;
+        font-size: 80px;
+    }    
 }

@@ -17,6 +17,7 @@
     width: 250px;
     border-radius: 5px;
 }
+
 .input::placeholder{
     color: black;
 }
@@ -66,6 +67,23 @@
 
 
 /* APLICANDO MEDIA QUERIES */
+
+@media (min-width: 1500px) {
+
+    .input{
+        height: 35px;
+        width: 400px;
+    }
+
+    .button{
+        width: 200px;
+        height: 30px;
+    }
+
+    .randomButton{
+        height: 30px;
+    }
+}
 
 @media (max-width: 450px) {
 

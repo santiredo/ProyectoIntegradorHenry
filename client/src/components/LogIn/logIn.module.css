@@ -1,12 +1,11 @@
 .loginForm{
     padding: 20px 20px;
     color: rgb(206, 194, 157);
-    letter-spacing: 1px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    z-index: 1000;
+    z-index: 1;
 }
 
 .input {
@@ -128,18 +127,43 @@
     .input p{
         top: 66%;
         left: 4%;
-
         font-size: 11px;
     }
 
     .input {
         font-size: 15px;
-        
     }
 
     .input input {
         font-size: small;
         width: 180px;
         height: 15px;
+    }
+}
+
+@media (min-width: 2000px) {
+
+    .loginForm{
+        letter-spacing: 3px;
+    }
+
+    .loginForm{
+        gap: 30px;
+    }
+
+    .input {
+        font-size: 30px;
+    }
+
+    .input span{
+        top: 75%;
+        left: 3%;
+        font-size: 15px;
+    }
+
+    .input p{
+        top: 95%;
+        left: 3%;
+        font-size: 15px;
     }
 }

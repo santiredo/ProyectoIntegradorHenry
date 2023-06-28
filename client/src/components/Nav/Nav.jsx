@@ -27,7 +27,7 @@ export default function Nav(){
         if(!views) {
             setViews(true)            
 
-            navDiv.classList.remove('navDisplayNone')
+            navDiv.classList.remove('navDiv')
             navDiv.classList.add('navDivMobile')
             
         } else{
@@ -35,7 +35,7 @@ export default function Nav(){
 
             setTimeout(() => {
                 navDiv.classList.remove('nav_navDiv__oTgwC')
-                navDiv.classList.add('navDisplayNone')
+                navDiv.classList.add('navDiv')
             }, 800);
             
             navDiv.classList.remove('navDivMobile')
@@ -68,13 +68,14 @@ export default function Nav(){
 
     return (
             <nav className={styles.navBar}>
+                <div className={styles.adjustNav}>
                 <h1 className={styles.title}>Rick & Morty Project</h1>
                 <h1 className={styles.mobileTitle}> Rick&Morty</h1>
                 <div className={styles.viewsContainer}>
                     <div className={styles.burgerButton}>
                         <BurgerButton handleViews={handleViews} />
                     </div>
-                    <div id="navDiv" className={'navDisplayNone'}>
+                    <div id="navDiv" className={'navDiv'}>
                         <NavLink to='/home' className={styles.navLink}>
                             Home
                         </NavLink>
@@ -92,13 +93,14 @@ export default function Nav(){
                     {
                         options && (
                             <div id="optionsDiv" className={styles.showOptions}>
-                                <div><img src={linkedIn} alt="" /><a>LinkedIn</a></div>
-                                <div><img src={instagram} alt="" /><a>Intagram</a></div>
-                                <div><img src={github} alt="" /><a>Github</a></div>
-                                <div><img src={door} alt="" /><a onClick={handleLogOut}>Log out</a></div>
+                                <div><img src={linkedIn} alt="" /><p>LinkedIn</p></div>
+                                <div><img src={instagram} alt="" /><p>Intagram</p></div>
+                                <div><img src={github} alt="" /><p>Github</p></div>
+                                <div><img src={door} alt="" /><p onClick={handleLogOut}>Log out</p></div>
                             </div>
                         )
                     }
+                </div>
                 </div>
             </nav>
     )

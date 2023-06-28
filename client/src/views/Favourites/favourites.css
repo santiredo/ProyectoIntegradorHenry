@@ -1,19 +1,19 @@
 .myFavsPage{
     margin-top: 120px;
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    gap: 50px;
 }
 
 .favFilters{
-    margin-bottom: 40px;
-    width: 80%;
+    width: 100%;
     gap: 100px;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
 }
 
 .selectBox{
@@ -28,41 +28,43 @@
 .selectId{
     padding: 10px 15px;
     color: black;
-    width: 100%;
+    width: 240px;
     display: flex;
     position: relative;
     align-items: center;
     justify-content: space-evenly;
     font-family: 'Kanit', sans-serif;
     letter-spacing: 2px;
-    border-radius: 100%;
+    border-radius: 10px;
+    font-weight: 800;
     transition: .5s;
     background: linear-gradient(rgb(80, 168, 84),rgb(169, 255, 174));
+    z-index: 900;
 }
 
 .selectGender:hover,
 .selectId:hover{
     cursor: pointer;
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: 0 0 10px rgb(25, 229, 35);
 }
 
 .selectGenderActive,
-.selectIdActiveActive {
+.selectIdActive {
     padding: 10px 15px;
     color: black;
-    width: 100%;
     display: flex;
     position: relative;
     align-items: center;
     justify-content: space-evenly;
     font-family: 'Kanit', sans-serif;
     letter-spacing: 2px;
-    border-radius: 100%;
+    border-radius: 10px;
     background: linear-gradient(rgb(80, 168, 84),rgb(169, 255, 174));
     cursor: pointer;
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: 0 0 10px rgb(25, 229, 35);
+    z-index: 901;
 }
 
 .title{
@@ -70,41 +72,127 @@
     font-size: medium;
 }
 
-.options {
+.hiddenOptions{
     color: rgb(206, 194, 157);
     overflow: auto;
     display: none;
 }
 
-
-.optionsActive {
+.options,
+.orderActive,
+.genderActive,
+.hideOrder,
+.hideGender {
     color: rgb(206, 194, 157);
+    letter-spacing: 2px;
     overflow: auto;
-    padding: 25px 10px;
+    border-radius: 5px;
+    margin-top: -15px;
+    padding: 35px 5px 20px 5px;
     position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    width: 130%;
-    top: 100%;
+    gap: 15px;
+    width: 100%;
     z-index: 900;
+    top: 100%;
+    background: linear-gradient(rgb(80, 168, 84),rgb(169, 255, 174));
+    box-shadow: 0 0 10px rgb(25, 229, 35);
+}
+
+.options::-webkit-scrollbar,
+.orderActive::-webkit-scrollbar,
+.genderActive::-webkit-scrollbar,
+.hideGender::-webkit-scrollbar {
+    display: none;
+  }
+
+.orderActive {
+    animation: order .5s;
+}
+
+@keyframes order {
+    0%{
+        height: 0px;
+        margin-top: -50px;
+        opacity: 0;
+    }
+    100%{
+        height: 83px;
+        margin-top: -15px;
+        opacity: 1;
+    }
+}
+
+.genderActive{
+    animation: gender .5s;
+}
+
+@keyframes gender {
+    0%{
+        height: 0px;
+        margin-top: -50px;
+        opacity: 0;
+    }
+    100%{
+        height: 230px;
+        margin-top: -15px;
+        opacity: 1;
+    }
+}
+
+.hideGender{
+    animation: hideGender .5s;
+}
+
+@keyframes hideGender {
+    0%{
+        height: 230px;
+        margin-top: -15px;
+        opacity: 1;
+    }
+
+    100%{
+        height: 0;
+        margin-top: -50px;
+        opacity: 0;
+    }
+}
+
+.hideOrder{
+    animation: hideOrder .5s;
+}
+
+@keyframes hideOrder {
+    0%{
+        height: 83px;
+        margin-top: -15px;
+        opacity: 1;
+    }
+
+    100%{
+        height: 0;
+        margin-top: -50px;
+        opacity: 0;
+    }
 }
 
 .option {
     width: 90%;
-    border-radius: 100%;
+    height: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
     background:linear-gradient(rgb(128, 0, 128),rgb(71, 6, 71));
     padding: 5px 0;
+    border-radius: 5px;
 }
 
 .option:hover{
     cursor: pointer;
     box-shadow: 0 0 10px rgb(255, 0, 238);
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .options p{
@@ -114,7 +202,95 @@
 /* Componente Card */
 
 .favContainer{
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
+    margin-bottom: 100px;
+    row-gap: 50px;
+    width: 1200px;
+    column-gap: 40px;
+}
+
+
+/* APLICACION DE MEDIA QUERIES */
+
+@media (min-width: 1500px) {
+
+    .favContainer{
+        width: 1500px;
+        column-gap: 100px;
+    }
+}
+
+@media (max-width: 1250px) {
+
+    .favContainer{
+        width: 960px;
+        column-gap: 20px;
+    }
+}
+
+@media (max-width: 1000px) {
+
+    .favContainer {
+        width: 95%;
+        column-gap: 3%;
+    }
+
+}
+
+@media (max-width: 850px) {
+
+    .favFilters{
+        justify-content: center;
+        gap: 20px;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .favContainer {
+        width: 85%;
+        column-gap: 4%;
+    }
+
+    .favFilters{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .selectId,
+    .selectIdActive{
+        z-index: 970;
+    }
+    .hideOrder,
+    .orderActive{
+        z-index: 950;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .favContainer{
+        width: 90%;
+    }
+
+    .myFavsPage{
+        gap: 50px;
+    }
+
+    .selectGender,
+    .selectId,
+    .selectGenderActive,
+    .selectIdActive{
+        width: 150px;
+    }
+
+    .title{
+        margin: 0;
+        font-size: x-small;
+        font-weight: 900;
+    }
 }

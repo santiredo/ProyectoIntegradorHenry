@@ -9,6 +9,9 @@ export default function Favourites(){
 
     const [aux, setAux] = useState(false)
 
+    const [order, setOrder] = useState(false)
+    const [gender, setGender] = useState(false)
+
     const dispatch = useDispatch();
     const myFavs = useSelector((state) => state.myFavs);
  
@@ -30,15 +33,47 @@ export default function Favourites(){
 
     const handleSelectOrder = (event) => {
         const orderOptions = document.querySelector("#orderOptions")
-        orderOptions.classList.toggle('optionsActive');
 
-        event.currentTarget.classList.toggle('selectIdActiveActive')
+        if(!order) {
+            setOrder(true)
+            orderOptions.classList.remove('hiddenOptions');            
+            orderOptions.classList.add('orderActive');            
+            
+        } else{
+            setOrder(false)
+
+            setTimeout(() => {
+                orderOptions.classList.remove('hideOrder');
+                orderOptions.classList.add('hiddenOptions')
+                
+            }, 500);
+            
+            orderOptions.classList.remove('orderActive')
+            orderOptions.classList.add('hideOrder')
+        }
+        event.currentTarget.classList.toggle('selectIdActive')
     }
 
     const handleSelectGender = (event) => {
         const genderOptions = document.querySelector('#genderOptions');
-        genderOptions.classList.toggle('optionsActive');
 
+        if(!gender) {
+            setGender(true)
+            genderOptions.classList.remove('hiddenOptions');            
+            genderOptions.classList.add('genderActive');            
+            
+        } else{
+            setGender(false)
+
+            setTimeout(() => {
+                genderOptions.classList.remove('hideGender');
+                genderOptions.classList.add('hiddenOptions')
+                
+            }, 500);
+            
+            genderOptions.classList.remove('genderActive')
+            genderOptions.classList.add('hideGender')
+        }
         event.currentTarget.classList.toggle('selectGenderActive');
     }
 
@@ -52,7 +87,7 @@ export default function Favourites(){
                         </div>
                         <img src={dropdown} alt="" />
                     </div>
-                    <div className='options' id="orderOptions">
+                    <div className='hiddenOptions' id="orderOptions">
                         <div className="option">
                             <div className='containerOption'>
                                 <p onClick={handleOrder} value="A">ASCENDENTE</p>
@@ -73,7 +108,7 @@ export default function Favourites(){
                         </div>
                         <img src={dropdown} alt="" />
                     </div>
-                    <div className='options' id="genderOptions">
+                    <div className='hiddenOptions' id="genderOptions">
                         <div className="option">
                             <div className='containerOption'>
                                 <p onClick={handleFilter} value="ShowAll">SHOW ALL</p>
