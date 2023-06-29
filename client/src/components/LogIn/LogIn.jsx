@@ -65,6 +65,7 @@ export default function LogIn(){
     return (
         <>
             <form className={style.loginForm} onSubmit={handleLogin}>
+            <h4 className={style.h4}>Log In</h4>
                 <div className={style.input}>
                     <label>Username</label>
                     <input

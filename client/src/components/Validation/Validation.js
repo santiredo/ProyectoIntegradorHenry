@@ -21,3 +21,26 @@ export const validateLogIn = ({email, password}) => {
 
     return errors;
 }
+
+export const validateRegister = ({registerEmail, registerPassword}) => {
+
+    let registerErrors = {};
+    let validateEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+    let validatePassword = /\d/;
+
+    if(!validateEmail.test(registerEmail)){
+        registerErrors.registerEmail = 'Username must be an email.';
+    }
+    if(registerEmail.length > 35){
+        registerErrors.registerEmailLength = true;
+    }
+    if(!validatePassword.test(registerPassword)){
+        registerErrors.registerPassword = 'Password must have a number.';
+    }
+    if(registerPassword.length < 6 || registerPassword.length > 10){
+        registerErrors.registerPasswordLength = 'Between 6 and 10 characters.';
+    }
+
+    return registerErrors
+
+}

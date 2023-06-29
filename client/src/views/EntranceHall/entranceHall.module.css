@@ -3,19 +3,27 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 100px 0 0 0;
+    margin: 50px 0 0 0;
 }
 
 .h1{
+    margin: 20px 0 40px 0;
     color: rgb(169, 255, 174);
     letter-spacing: 3px;
-    font-size: 80px;
+    font-size: 50px;
     z-index: 1;
+}
+
+.lineaDivisora{
+    width: 100%;
+    border-top: 1px solid rgb(206, 194, 157);
+    z-index: 1000;
 }
 
 .onlyForms{
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 50px;
 }
 
@@ -29,10 +37,14 @@
     z-index: 0;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1600px) {
 
     .entrancePage {
         margin-top: 30px;
+    }
+
+    .h1{
+        margin: 10px 0 0 0;
     }
 
 }
@@ -45,10 +57,28 @@
 
 }
 
-@media (max-width: 550px) {
+@media (max-width: 600px) {
+
+    .entrancePage{
+        margin: 40px 0;
+    }
 
     .h1{
         font-size: 60px;
+    }
+
+    .onlyForms{
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .h1{
+        font-size: 40px;
     }
 
 }
