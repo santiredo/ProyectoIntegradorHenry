@@ -15,7 +15,7 @@ const login = async (req, res) => {
 
         if(!user) return res.status(404).send('Usuario no encontrado')
 
-        return user.password === password
+        user.password === password
         ? res.status(200).json({access:true})
         : res.status(403).send('Contraseña incorrecta')
 

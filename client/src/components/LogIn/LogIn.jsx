@@ -48,8 +48,10 @@ export default function LogIn(){
         const url = 'http://localhost:3002/rickandmorty/login';
 
         try {
-            const result = await axios.post(url + `?email=${userData.email}&password=${userData.password}`)
+            const result = await axios.get(url + `?email=${userData.email}&password=${userData.password}`)
             const {access} = result.data
+
+            console.log(access)
 
             dispatch(setAccess(access))
 
