@@ -10,7 +10,7 @@ const postFav = async(req, res) => {
             return res.status(401).send('Faltan Datos')
         }
 
-        await Favorite.findOrCreate({
+        const favorito = await Favorite.findOrCreate({
             where: {
                 id,
                 name,
@@ -21,6 +21,8 @@ const postFav = async(req, res) => {
                 gender
             }
         })
+
+        console.log(favorito)
 
         const allFavourites = await Favorite.findAll()
         return res.status(200).json(allFavourites)

@@ -15,6 +15,8 @@ export default function App() {
 
    async function onSearch(id) {
 
+      console.log(characters)
+
       try {
          const response = await axios(`http://localhost:3002/rickandmorty/character/${id}`)
          const data = response.data
@@ -52,7 +54,7 @@ export default function App() {
       deletedCharacter.classList.add('cardLeaving');
    }
 
-   function randomHandler() {
+   async function randomHandler() {
 
       let random = Math.floor(Math.random() * 826 + 1);
 
@@ -63,7 +65,7 @@ export default function App() {
          return;
       }
 
-      fetch(`https://rickandmortyapi.com/api/character/${random}`)
+      await fetch(`http://localhost:3002/rickandmorty/character/${random}`)
       .then(res => res.json())
       .then((data) => {
          setCharacters((oldChars) => [data, ...oldChars]);

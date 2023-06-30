@@ -19,6 +19,8 @@ export default function Card({char, id, name, status, species, gender, image, on
    const myFavs = useSelector(state => state.myFavs)
 
    const handleFav = (data) => {
+
+      console.log(data)
       
       if(isFav){
          setIsFav(false);

@@ -18,7 +18,7 @@ const getCharById = async(req, res) => {
                 species: result.species,
                 origin: result.origin?.name,
                 image: result.image,
-                stauts: result.status
+                status: result.status
             }
             return res.status(200).json(character)
         }
