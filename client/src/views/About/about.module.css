@@ -1,14 +1,16 @@
 .pageDiv {
     display: flex;
     flex-direction: column;
-    margin: 0 80px;
+    margin: 5%;
     margin-bottom: 50px;
     align-items: center;
     gap: 100px;
 }
 
 .title {
-    margin: 100px 450px 100px 450px;
+    margin-top: 100px;
+    margin-bottom: 0;
+    padding: 0 80px;
     text-align: center;
     border-radius: 10px;
     color: rgb(206, 194, 157);
@@ -19,8 +21,8 @@
 
 .aboutMeDiv {
     display: grid;
-    grid-template-columns: 1.2fr 2fr;
-    gap: 120px;
+    grid-template-columns: 1fr 2fr;
+    gap: 100px;
     height: 450px;
     align-items: center;
     justify-items: center;
@@ -28,8 +30,8 @@
 
 .perfil{
     display: flex;
-    height: 100%;
-    width: 100%;
+    height: 400px;
+    width: 400px;
     justify-content: center;
     align-items: center;
     perspective: 1000px;
@@ -47,8 +49,8 @@
     backface-visibility: hidden;
     transition: transform 0.6s ease;
     background:linear-gradient(rgb(117, 0, 117),rgb(71, 6, 71));
-    width: 404px;
-    height: 404px;
+    height: 100%;
+    width: 100%;
     border-radius: 50%;
     border: solid rgb(192, 0, 150);
 }
@@ -65,8 +67,8 @@
     position: absolute;
     backface-visibility: hidden;
     transition: transform 0.6s ease;
-    max-width: 100%;
-    height: auto;
+    height: 100%;
+    width: 100%;
     border-radius: 50%;
     border: solid rgb(192, 0, 150);
 }
@@ -86,13 +88,13 @@
     line-height: 170%;
     border: 5px solid rgb(192, 0, 150);
     border-radius: 15px;
-    background:linear-gradient(rgb(117, 0, 117),rgb(71, 6, 71));
+    background:linear-gradient(rgb(71, 6, 71),rgb(138, 6, 138));
 }
 
 .initialText p {
     margin: 0 45px;
-    color:rgb(241, 207, 167);
-    font-size: 21px;
+    color: rgb(206, 194, 157);
+    font-size: 20px;
     letter-spacing: 1.4px;
     text-align: center;
 }
@@ -105,14 +107,14 @@
     flex-wrap: wrap;
     row-gap: 40px;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between
 }
 
 .infoCards {
     display: flex;
     position: relative;
     border-radius: 15px;
-    width: 45%;
+    width: 48%;
     height: 200px;
     background:linear-gradient(rgb(71, 6, 71),rgb(138, 6, 138));
 }
@@ -148,8 +150,7 @@
     display: flex;
     align-items: center;
     text-align: center;
-    justify-content: center;
-    gap: 100px;
+    justify-content: space-evenly;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -169,6 +170,7 @@
     cursor: pointer;
     width: 70px;
     height: 70px;
+    transition: .5s;
 }
 
 .backCards img:hover {
@@ -178,10 +180,10 @@
 
 .infoCardsPlus {
     z-index: 900;
-    display: flex;
+    display: grid;
     position: relative;
     border-radius: 15px;
-    width: 45%;
+    width: 48%;
     height: 200px;
     transition: 1s;
     background: linear-gradient(rgb(26, 85, 28),rgb(0, 0, 0));
@@ -199,12 +201,12 @@
     width: 100%;
     height: 100%;
     transition: 1.5s;
-    opacity: 1s;
+    opacity: 1;
 }
 
 .infoCardsPlus:hover {
-    transform-origin: bottom left;
-    transform: scaleX(2.08) scaleY(2.2);
+    transform-origin: bottom right;
+    transform: scaleX(2.085) scaleY(2.2);
     transition: 1s;
     border-radius: 6px;
 }
@@ -212,7 +214,6 @@
 .infoCardsPlus:hover .frontCardsPlus{
     opacity: 0;
     transition: 0.7s;
-    cursor: pointer;
 }
 
 .infoCardsPlus:hover .backCardsPlus{
@@ -240,4 +241,227 @@
     font-size: 8px;
     letter-spacing: 0.5px;
     line-height: 120%;
+}
+
+/* APLICANDO MEDIA QUERIES */
+
+@media (max-width: 1400px) {
+
+    .pageDiv{
+        margin: 2%;
+    }
+
+    .title{
+        margin-bottom: 30px;
+    }
+
+    .aboutMeDiv{
+        gap: 50px;
+    }    
+}
+
+@media (max-width: 1200px) {
+
+    .pageDiv{
+        gap: 0;
+    }
+
+    .aboutMeDiv {
+        grid-template-columns: 1fr 2fr;
+        gap: 20px;
+    }
+    
+    .perfil{
+        height: 300px;
+        width: 300px;
+    }
+
+    .perfilBack p{
+        font-size: x-large;
+    }
+
+    .initialText{
+        height: 60%;
+    }
+
+    .initialText p{
+        font-size: 15px;
+        line-height: 125%;
+        letter-spacing: .5px;
+    }
+    
+    .frontCards{
+        font-size: 25px;
+    }
+
+    .frontCardsPlus{
+        font-size: 25px;
+    }
+    
+    .backCards p{
+        font-size: 15px;
+        padding: 0 18px 0 18px;
+    }
+
+    .backCardsPlus p{
+        padding: 4px 12px;
+        font-size: 7px;
+    }
+
+    .backCards img{
+        width: 50px;
+        height: 50px;
+    }
+    
+}
+
+@media (max-width: 800px) {
+
+    .title{
+        font-size: 50px;
+    }
+
+    .aboutMeDiv{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .perfil{
+        width: 200px;
+        height: 200px;
+    }
+
+    .cardsDiv{
+        padding: 0;
+    }
+
+    .initialText{
+        height: 180px;
+    }
+
+    .initialText p{
+        font-size: 13px;
+    }
+
+    .perfil{
+        height: 200px;
+        width: 200px;
+    }
+
+    .perfilBack p{
+        font-size: medium;
+    }
+    
+    .frontCardsPlus{
+        letter-spacing: 0.5px;
+        font-size: 20px;
+    }
+
+    .backCards p{
+        font-size: 11px;
+        padding: 0 18px 0 18px;
+    }
+
+    .backCardsPlus p{
+        padding: 4px 12px;
+        font-size: 5.5px;
+    }
+
+    .backCards img{
+        width: 35px;
+        height: 35px;
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .pageDiv{
+        gap: 100px;
+        margin-bottom: 40px;
+    }
+
+    .title{
+        padding: 0 40px;
+        font-size: 40px;
+    }
+
+    .aboutMeDiv{
+        height: auto;
+    }
+
+    .initialText{
+        height: auto;
+    }
+    
+    .initialText p{
+        font-size: 12px;
+        margin: 20px 30px;
+    }
+
+    .cardsDiv{
+        flex-direction: column;
+        position: relative;
+    }
+
+    .frontCards{
+        font-size: 20px;
+    }
+
+    .infoCards{
+        width: 100%;
+        height: 200px;
+    }
+
+    .infoCardsPlus{
+        display: flex;
+        position: relative;
+        width: 100%;
+        height: 200;
+        transition: 1s;
+    }
+
+    .frontCardsPlus{
+        position: static;
+        transition: 3s;
+
+    }
+
+    .backCardsPlus{
+        position: absolute;
+        transition: 0s;
+    }
+
+    .infoCardsPlus:hover{
+        transform: none;
+        /* animation: infoDisplay 1s forwards; */
+        transition: 1s;
+        transform-origin: top;
+        transform: scaley(2);
+        margin-bottom: 300px;
+    }
+
+    .infoCardsPlus:hover .backCardsPlus p{
+        font-size: 6.5px;
+        letter-spacing: 2.3px;
+        line-height: 85%;
+    }
+}
+
+@media (max-width: 350px) {
+    
+    .infoCardsPlus:hover .backCardsPlus p{
+        font-size: 6px;
+        letter-spacing: 2.3px;
+        line-height: 85%;
+    }
+
+    .infoCardsPlus:hover{
+        transform: none;
+        transition: 1s;
+        transform-origin: top;
+        transform: scaley(2.5);
+        margin-bottom: 300px;
+    }
+
 }
