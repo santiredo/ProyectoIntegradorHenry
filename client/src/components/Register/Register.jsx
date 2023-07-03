@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {validateRegister} from '../Validation/Validation.js';
+import axios from 'axios';
 import style from './register.module.css';
 
 
@@ -24,11 +25,36 @@ export default function Register(){
         )
     }
 
+    const handleRegister = async(event) => {
+
+        event.preventDefault()
+
+        const url = 'http://localhost:3002/rickandmorty/login';
+
+        try {
+            
+            const result = await axios.post(url, {
+                email: registerData.registerEmail,
+                password: registerData.registerPassword
+            })
+
+            console.log(result)
+
+            setRegisterData({
+                registerEmail: '',
+                registerPassword: '',
+            });
+
+        } catch (error) {
+            alert('Debe cumplir con los requisitos para registrarse')
+        }
+    }
+
 
     return (
         <>
             
-            <form className={style.loginForm}>
+            <form className={style.loginForm} onSubmit={handleRegister}>
                 <h4 className={style.h4}>Register</h4>
                 <div className={style.input}>
                     <label>Username</label>

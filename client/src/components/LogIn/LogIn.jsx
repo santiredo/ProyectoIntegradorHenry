@@ -51,7 +51,7 @@ export default function LogIn(){
             const result = await axios.get(url + `?email=${userData.email}&password=${userData.password}`)
             const {access} = result.data
 
-            console.log(access)
+            console.log(result.data)
 
             dispatch(setAccess(access))
 
